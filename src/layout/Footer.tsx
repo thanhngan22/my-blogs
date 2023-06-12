@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <div className="footer__wrapper bg-blue-500 h-full">
+        <div className="footer__wrapper h-full">
             {/* <p>© thanhngan22</p> */}
         </div>
     )

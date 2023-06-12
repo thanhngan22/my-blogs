@@ -1,5 +1,17 @@
 
 
+.header__wrapper {
+  background: linear-gradient(to right, #0c2357, #8c72c7);
+}
+
+.footer__wrapper {
+  background: linear-gradient(to left, #0c2357, #8c72c7);
+}
+
+.section__comment-item {
+  margin-bottom: 4px;
+  font-weight: 300;
+}
 
 
 .main__container {
