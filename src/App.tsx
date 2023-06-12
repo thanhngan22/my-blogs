@@ -1,10 +1,26 @@
 import React from 'react';
-import './App.css';
+
+// components
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import Catalog from './layout/Catalog';
+import Content from './layout/Content';
+import Sections from './layout/Sections';
 
 function App() {
   return (
-    <div className="App">
-      <h2 className="bg-slate-500 text-fuchsia-300" >hi</h2>
+    <div className="app__container h-screen flex flex-col">
+      <div id="header" className="h-6">
+        <Header />
+      </div>
+      <div className="main__container flex px-32 h-full">
+        <Catalog />
+        <Content />
+        <Sections />
+      </div>
+      <div id="footer" className="h-6">
+        <Footer />
+      </div>
     </div>
   );
 }

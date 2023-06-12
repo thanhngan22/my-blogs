@@ -1,0 +1,35 @@
+
+
+
+
+.main__container {
+    /* background: linear-gradient(to bottom right, #ffcccc, #ff99cc);   */
+    background: linear-gradient(to bottom right, #ffcccc, #7fa4b4,  hsl(150, 50%, 80%));  
+
+}
+
+
+/* sections list  */
+.bar {
+  width: 2px;
+}
+
+.section__item {
+  margin-bottom: 8px;
+}
+
+
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f1f1f1;
+}
+
+::-webkit-scroll-track {
+    /* background: slategrey; */
+}
+
+::-webkit-scrollbar-thumb {
+  background: bisque;
+}
