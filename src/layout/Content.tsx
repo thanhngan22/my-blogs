@@ -34,13 +34,13 @@ const Content = () => {
     return (
         <div className="content__wrapper w-3/5 py-2 px-10 overflow-y-auto overflow-x-hidden">
             <div className="blog__header">
-                <h1 className="text-3xl font-semibold"> 📝 Linux materials 💦</h1>
+                <h1 className="text-3xl font-semibold"> 📝 Blog Tittle</h1>
             </div>
             <div className="blog__main">
-                <ReactMarkdown children={data}
+                {/* <ReactMarkdown children={data}
                     remarkPlugins={[remarkMath, remarkGfm]}
                     rehypePlugins={[rehypeKatex]}
-                />
+                /> */}
             </div>
         </div>
     )
