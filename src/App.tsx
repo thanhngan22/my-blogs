@@ -13,7 +13,7 @@ function App() {
       <div id="header" className="h-6">
         <Header />
       </div>
-      <div className="main__container flex h-full">
+      <div className="main__container flex ">
         <Catalog />
         <Content />
         <Sections />

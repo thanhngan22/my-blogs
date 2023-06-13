@@ -15,6 +15,8 @@
 
 
 .main__container {
+  height: 96%;
+
     /* background: linear-gradient(to bottom right, #ffcccc, #ff99cc);   */
     background: linear-gradient(to bottom right, #ffcccc, #7fa4b4,  hsl(150, 50%, 80%));  
 
@@ -43,5 +45,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: bisque;
+  /* background: bisque; */
+  background: linear-gradient(to bottom,coral, pink, rgb(145, 51, 51));
+  border-radius: 8px;
 }
