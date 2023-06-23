@@ -1,9 +1,9 @@
 const Sections = () => {
   return (
-    <div className="sections__wrapper w-1/5 px-5 py-2 border-l border-white flex flex-col justify-between">
+    <div className="sections__wrapper w-1/5 px-5 py-5 border-l border-white flex flex-col justify-between">
       <div className="section__1">
         <div className="sections__header">
-          <h1 className="text-xl font-semibold"> 📝 Sections | In this blog</h1>
+          <h1 className="text-xl text-slate-900"> 📝 Sections | In this blog</h1>
         </div>
         <div className="sections__body flex py-4">
           <div className="bar bg-red-400 ml-5 h-auto"></div>
@@ -23,7 +23,7 @@ const Sections = () => {
       </div>
       <div className="section__2">
         <div className="sections__comment-header mt-32">
-          <h1 className="text-xl font-semibold"> 💬 Comments</h1>
+          <h1 className="text-xl text-slate-900"> 💬 Comments</h1>
         </div>
         <div className="sections__comment-body flex py-4">
           <div className="bar bg-pink-300 ml-5 h-auto"></div>

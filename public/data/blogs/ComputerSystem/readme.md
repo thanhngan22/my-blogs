@@ -19,16 +19,16 @@ ___
 
 ## 📚 List of contents
 
-- [Introduction to Computer Organization and Architecture]() </br>
-- [Fetch - Decode - Execute Cycle]() </br>
-- [Assembly Language Programming with the Little Man Computer]() </br>
-- [Instruction Set Architecture (ISA)]() </br>
-- [CPU Benchmarking]() </br>
-- [CPU Organization and Structure]() </br>
-- [CPU Pipelining]() </br>
-- [Input - Output Organization]() </br>
-- [Memory Organization]() </br>
-- [Hierarchical Bus Organization]() </br>
+- [Introduction to Computer Organization and Architecture]() 
+- [Fetch - Decode - Execute Cycle]() 
+- [Assembly Language Programming with the Little Man Computer]() 
+- [Instruction Set Architecture (ISA)]() 
+- [CPU Benchmarking]() 
+- [CPU Organization and Structure]() 
+- [CPU Pipelining]() 
+- [Input - Output Organization]() 
+- [Memory Organization]() 
+- [Hierarchical Bus Organization]() 
 
 ___
 

@@ -1,7 +1,37 @@
-{
-    "post": {
-        "id": 1,
-        "title": "json-server",
-        "author": "typicode"
-    }
-}
+[
+  {
+    "id": "1",
+    "topic": "Linux",
+    "path": "data/blogs/Linux/readme.md",
+    "title": "Linux Fundamentals",
+    "sections": [
+      "Introduction",
+      "Module 1 - Understanding Linux Concept",
+      "Module 2 - Download, Install and Configure",
+      "Module 3 - System Access and File System",
+      "Module 4 - Linux Fundamentals",
+      "Module 5 - System Administration",
+      "Module 6 - Shell Scripting",
+      "Module 7 - Networking, Services, and System Updates",
+      "Module 8 - Disk Management and Run Levels"
+    ]
+  },
+  {
+    "id": "2",
+    "topic": "Computer System",
+    "path": "data/blogs/ComputerSystem/readme.md",
+    "title": "Computer System Roadmap",
+    "sections": [
+      "Introduction to Computer Organization and Architecture",
+      "Fetch - Decode - Execute Cycle",
+      " Assembly Language Programming with the Little Man Computer",
+      "Instruction Set Architecture (ISA)",
+      "CPU Benchmarking",
+      " CPU Organization and Structure",
+      "CPU Pipelining",
+      "Input - Output Organization",
+      "Memory Organization",
+      "Hierarchical Bus Organization"
+    ]
+  }
+]

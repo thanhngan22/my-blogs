@@ -1,0 +1,24 @@
+.catalog__header {
+    &::after {
+      content: '';
+      display: block;
+      width: 50%;
+      margin-left: 10%;
+      height: 1px;
+      margin-top: 4px;
+      background: linear-gradient(to right, #50679b, #948aac);
+      box-shadow: 0 0 1px 1px rgb(129, 53, 53);
+    }
+  }
+
+  .catalog__item {
+    margin-bottom: 4px;
+    > a {
+        font-weight: 500;
+        
+        &:hover {
+            color: rgb(129, 53, 53);
+        }
+
+    }
+  }
