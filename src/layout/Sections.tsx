@@ -1,23 +1,132 @@
-const Sections = () => {
+import { useEffect, useState } from 'react';
+import { IPost } from '../interfaces';
+
+import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
+interface IProps {
+  data: IPost[];
+}
+
+const Sections: React.FC<IProps> = ({ data }) => {
+  const fakeList: JSX.Element[] = [
+    <div className="section__item">
+      <h1 className="text-sm font-semibold "> Section 1</h1>
+    </div>,
+    <div className="section__item">
+      <h1 className="text-sm font-semibold "> Section 2</h1>
+    </div>,
+    <div className="section__item">
+      <h1 className="text-sm font-semibold "> Section 3</h1>
+    </div>,
+  ];
+
+  const [sections, setSections] = useState<JSX.Element[]>(fakeList);
+
+  const location = useLocation();
+  const url = location.pathname.split('/')[1];
+
+  useEffect(() => {
+    // console.log('data: ', data);
+    let obj: IPost;
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].topic.toLocaleLowerCase().replace(' ', '-') === url) {
+        obj = data[i];
+        console.log('obj: ', obj);
+
+        // create list sections
+        const listSections = obj.sections.map((section, index) => {
+          const classNameTab = 'tab__item-' + index;
+          return (
+            <div className="section__item">
+              <a
+                href={`#${index}`}
+                className={
+                  `text-sm font-semibold hover:text-gray-600 ` + classNameTab
+                }
+              >
+                {' '}
+                {section}
+              </a>
+            </div>
+          );
+        });
+
+        setSections(listSections);
+
+        break;
+      }
+    }
+  }, [window.location.href]);
+
+  useEffect(() => {
+    // select all sections a
+    const sectionTags = document.querySelectorAll('.section__item a');
+    // console.log('sectionTags: ', sectionTags);
+
+    // add event onclick to all sections a
+    sectionTags.forEach((section) => {
+      section.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // ignore # in href
+        const targetID = section.getAttribute('href')?.slice(1);
+        // console.log('targetID: ', targetID);
+
+        const targetElement = targetID
+          ? document.getElementById(targetID)
+          : null;
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        
+        // change location
+        const href = section.getAttribute('href');
+        window.history.pushState(null, '', href);
+
+        // get current tab section
+        const tabIndex = targetID ? targetID : undefined;
+        console.log('tabIndex: ', tabIndex);
+        let currentSection = 0;
+        if (tabIndex !== undefined) {
+          currentSection = parseInt(tabIndex);
+        }
+        console.log('currentSection: ', currentSection);
+
+        // select section with tabIndex
+        const tabClassName = 'tab__item-' + currentSection;
+
+        const currentTabElement = document.querySelector('.' + tabClassName);
+        console.log('currentTabElement: ', currentTabElement);
+
+        // remove all class text-blue-500
+        const allTabElements = document.querySelectorAll('.section__item a');
+        allTabElements.forEach((tab) => {
+          tab.classList.remove('text-blue-500');
+        });
+
+        currentTabElement?.classList.add('text-blue-500');
+
+      });
+    });
+  }, [sections]);
+
   return (
     <div className="sections__wrapper w-1/5 px-5 py-5 border-l border-white flex flex-col justify-between">
       <div className="section__1">
         <div className="sections__header">
-          <h1 className="text-xl text-slate-900"> 📝 Sections | In this blog</h1>
+          <h1 className="text-xl text-slate-900">
+            {' '}
+            📝 Sections | In this blog
+          </h1>
         </div>
         <div className="sections__body flex py-4">
           <div className="bar bg-red-400 ml-5 h-auto"></div>
           <div className="sections__list py-2 pl-5 ">
             {/* create fake list */}
-            <div className="section__item">
-              <h1 className="text-sm font-semibold "> Section 1</h1>
-            </div>
-            <div className="section__item">
-              <h1 className="text-sm font-semibold "> Section 2</h1>
-            </div>
-            <div className="section__item">
-              <h1 className="text-sm font-semibold "> Section 3</h1>
-            </div>
+            {sections}
           </div>
         </div>
       </div>

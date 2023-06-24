@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import {Router} from 'react-router-dom';
-
 
 import Catalog from './Catalog';
 import Content from './Content';
@@ -12,20 +10,22 @@ import { IPost } from '../interfaces';
 
 function Main() {
   const [listTopics, setListTopics] = useState<string[]>([]);
+  const [data, setData] = useState<IPost[]>([]);
 
   useEffect(() => {
     const data = FetchListPosts();
     let listObj: IPost[];
     data
       .then((res) => {
-        console.log('res: ', res);
+        // console.log('res: ', res);
         listObj = res;
+        setData(listObj);
       })
       .then(() => {
         const listTopics = listObj.map((obj) => {
           return obj.topic;
         });
-        console.log('listTopics: ', listTopics);
+        // console.log('listTopics: ', listTopics);
         setListTopics(listTopics);
       });
   }, []);
@@ -34,8 +34,8 @@ function Main() {
   return (
     <div className="main__container flex ">
         <Catalog tittles={listTopics} />
-        <Content />
-        <Sections />
+        <Content data={data} />
+        <Sections data={data} />
         </div>
   )
 

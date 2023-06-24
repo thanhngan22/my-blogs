@@ -3,7 +3,7 @@
 export interface IPost {
     id: string,
     topic: string,
-    title: string,
+    tittle: string,
     path: string,
     sections: string[],
 

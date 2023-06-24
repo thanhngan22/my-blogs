@@ -1,5 +1,4 @@
 
-
 .header__wrapper {
   /* background: linear-gradient(to right, #0c2357, #8c72c7); */
   background: linear-gradient(to top right, rgb(129, 53, 53), rgb(15, 89, 119));
@@ -12,7 +11,9 @@
 
 }
 
-
+#main {
+  height: 96%;
+}
 
 .main__container {
   height: 100%;

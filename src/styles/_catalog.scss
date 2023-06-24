@@ -22,3 +22,22 @@
 
     }
   }
+
+.current__topic {
+  &::before {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 24px;
+    background-color: #435ec0;
+    margin-left: -8px;
+    margin-right: 1px;
+    
+  }
+
+  > a {
+    color: #435ec0;
+    padding: 0 8px;
+    background-color: antiquewhite;
+  }
+}

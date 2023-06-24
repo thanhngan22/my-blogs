@@ -1,16 +1,3 @@
-## 📚 List of Contents
-
-- [Introduction](#📚-introduction) 
-- [Module 1 - Understanding Linux Concept](#📚-module-1---understanding-linux-concept) 
-- [Module 2 - Download, Install and Configure](#📚-module-2---download-install-and-configure) 
-- [Module 3 - System Access and File System](#📚-module-3---system-access-and-file-system) 
-- [Module 4 - Linux Fundamentals](#📚-module-4---linux-fundamentals) 
-- [Module 5 - System Administration](#📚-module-5---system-administration) 
-- [Module 6 - Shell Scripting](#📚-module-6---shell-scripting) 
-- [Module 7 - Networking, Services, and System Updates](#📚-module-7---networking-services-and-system-updates) 
-- [Module 8 - Disk Management and Run Levels](#📚-module-8---disk-management-and-run-levels) 
-
-___
 
 ## 📚 Introduction
 

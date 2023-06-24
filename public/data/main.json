@@ -3,7 +3,7 @@
     "id": "1",
     "topic": "Linux",
     "path": "data/blogs/Linux/readme.md",
-    "title": "Linux Fundamentals",
+    "tittle": "Linux Fundamentals",
     "sections": [
       "Introduction",
       "Module 1 - Understanding Linux Concept",
@@ -20,7 +20,7 @@
     "id": "2",
     "topic": "Computer System",
     "path": "data/blogs/ComputerSystem/readme.md",
-    "title": "Computer System Roadmap",
+    "tittle": "Computer System Roadmap",
     "sections": [
       "Introduction to Computer Organization and Architecture",
       "Fetch - Decode - Execute Cycle",

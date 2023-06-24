@@ -1,26 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { Outlet, BrowserRouter as Router, RouterProvider } from 'react-router-dom';
+import router from './routes';
 // components
-import Header from './layout/Header';
-import Footer from './layout/Footer';
-import Main from './layout/Main';
 
 function App() {
   return (
-<Router>
-<div className="app__container h-screen flex flex-col">
-      <div id="header" className="h-6">
-        <Header />
-      </div>
-      <div id="main" className="h-full">
-        <Main />
-      </div>
-      <div id="footer" className="h-6">
-        <Footer />
-      </div>
-    </div>
-</Router>
+<div id="App">
+  < RouterProvider router={router} />
+</div>
   );
 }
 
