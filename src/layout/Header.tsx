@@ -2,7 +2,7 @@
 
 const Header = () => {
     return (
-        <div className="header__wrapper h-full">
+        <div className="header__wrapper">
         </div>
     )
 }

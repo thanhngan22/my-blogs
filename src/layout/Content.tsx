@@ -18,9 +18,7 @@ const Content: React.FC<IProps> = ({ data }) => {
   //   console.log('data: ', data);
 
   const [content, setContent] = useState<string>(`
-  # Hi there 👋  
-  
-  ### This is my blog webpage :")`);
+  `);
 
   //   get url
   const url = useLocation();

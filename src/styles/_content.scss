@@ -1,81 +1,82 @@
-.content__wrapper  {
-    padding: 20px 60px 60px 80px;
-    border-left: 6px solid #eaecef;
-    .blog__main {
-
-        > h1 {
-            font-size: 30px;
-            font-weight: 500;
-            margin-bottom: 20px;
-        }
-
-        > h2 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            
-        }
-        
-        > hr {
-            margin: 20px 0;
-            border: 0;
-            height: 2px;
-            border-bottom: 2px solid;
-        }
-        
-        > table {
-            border-collapse: collapse;
-        }
-
-        > ul  {
-            margin-left: 40px;
-            list-style: none;
-
-            >li {
-                margin-bottom: 10px;
-            }
-
-            > li p {
-                &::before {
-                    content: '•'; /* Set the marker to a bullet character */
-                    color: palevioletred; /* Set the color of the bullet */
-                    margin-right: 0.5em; /* Adjust the spacing between the bullet and the list item text */
-                  }
-            }
-        }
-
-
-
-        /* CSS for markdown */
-        > blockquote {
-            margin: 0 7px 0 5px;
-            padding: 0 16px 0 10px;
-            border-left-width: 5px;
-            border-left-style: solid;
-        }
-        
-        > code {
-            font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-            font-size: 1em;
-            line-height: 1.357em;
-        }
-        
-        > body.wordWrap pre {
-            white-space: pre-wrap;
-        }
-        
-        > pre:not(.hljs),
-        pre.hljs code > div {
-            padding: 16px;
-            border-radius: 3px;
-            overflow: auto;
-        }
-        
-        > pre code {
-            color: var(--vscode-editor-foreground);
-            tab-size: 4;
-        }
-
+.content__wrapper {
+  /*background: linear-gradient(
+    to bottom right,
+    rgb(141, 201, 217),
+    hsl(150, 25%, 50%)
+  );*/
+  background-color: rgb(141,201,217);
+  padding: 20px 60px 60px 80px;
+  border-left: 6px solid #eaecef;
+  .blog__main {
+    > h1 {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 20px;
     }
 
+    > h2 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    > hr {
+      margin: 20px 0;
+      border: 0;
+      height: 2px;
+      border-bottom: 2px solid;
+    }
+
+    > table {
+      border-collapse: collapse;
+    }
+
+    > ul {
+      margin-left: 40px;
+      list-style: none;
+
+      > li {
+        margin-bottom: 10px;
+      }
+
+      > li p {
+        &::before {
+          content: '•'; /* Set the marker to a bullet character */
+          color: palevioletred; /* Set the color of the bullet */
+          margin-right: 0.5em; /* Adjust the spacing between the bullet and the list item text */
+        }
+      }
+    }
+
+    /* CSS for markdown */
+    > blockquote {
+      margin: 0 7px 0 5px;
+      padding: 0 16px 0 10px;
+      border-left-width: 5px;
+      border-left-style: solid;
+    }
+
+    > code {
+      font-family: Menlo, Monaco, Consolas, 'Droid Sans Mono', 'Courier New',
+        monospace, 'Droid Sans Fallback';
+      font-size: 1em;
+      line-height: 1.357em;
+    }
+
+    > body.wordWrap pre {
+      white-space: pre-wrap;
+    }
+
+    > pre:not(.hljs),
+    pre.hljs code > div {
+      padding: 16px;
+      border-radius: 3px;
+      overflow: auto;
+    }
+
+    > pre code {
+      color: var(--vscode-editor-foreground);
+      tab-size: 4;
+    }
+  }
 }

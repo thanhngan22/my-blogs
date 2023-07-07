@@ -115,10 +115,7 @@ const Sections: React.FC<IProps> = ({ data }) => {
     <div className="sections__wrapper w-1/5 px-5 py-5 border-l border-white flex flex-col justify-between">
       <div className="section__1">
         <div className="sections__header">
-          <h1 className="text-xl text-slate-900">
-            {' '}
-            📝 Sections | In this blog
-          </h1>
+          <h1 className="text-xl text-white"> 📝 Sections | In this blog</h1>
         </div>
         <div className="sections__body flex py-4">
           <div className="bar bg-red-400 ml-5 h-auto"></div>
@@ -165,6 +162,9 @@ const Sections: React.FC<IProps> = ({ data }) => {
   </div>
 </div>; */}
 
+      <div className=" bg-blue-500 fixed bottom-0 right-0  px-3 h-5 text-sm font-semibold">
+        <a href="https://github.com/thanhngan22">© thanhngan22</a>
+      </div>
     </div>
   );
 };

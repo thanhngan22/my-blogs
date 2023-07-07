@@ -10,4 +10,15 @@
   
   .section__item {
     margin-bottom: 8px;
+    > a {
+      color: #fff;
+      font-weight: 500;
+      &:hover {
+        color: rgb(129, 53, 53);
+      }
+    }
+  }
+
+  .sections__wrapper {
+    background-color: black;
   }

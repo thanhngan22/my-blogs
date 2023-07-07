@@ -1,28 +1,32 @@
 .header__wrapper {
-  background: linear-gradient(to left, rgb(179, 117, 117), rgb(15, 89, 119));
+  height: 12px;
+  /*background: linear-gradient(to left, rgb(179, 117, 117), rgb(15, 89, 119));*/
+  background-color: #1b5565;
 }
 
 .footer__wrapper {
-  background: linear-gradient(
+  height: 12px;
+  /*background: linear-gradient(
     to top left,
     rgb(179, 117, 117),
     rgb(15, 89, 119)
-  );
+  );*/
+  background-color: #1b5565;
 }
 
 #main {
-  height: 98%;
+  height: 100%;
 }
 
 .main__container {
   height: 100%;
 
-  background: linear-gradient(
+  /*background: linear-gradient(
     to right,
     hsl(150, 50%, 68%),
     rgb(141, 201, 217),
     hsl(150, 50%, 70%)
-  );
+  );*/
 }
 
 /* scroll bar */

@@ -40,7 +40,7 @@ const Catalog: React.FC<IProps> = ({ tittles }) => {
     const list = tittles.map((tittle, index) => {
       const url = tittle.replace(/\s/g, '-').toLowerCase();
       return (
-        <li className="catalog__item" key={index} id={url}>
+        <li className="catalog__item " key={index} id={url}>
           <Link to={`/${url}`} className="text-slate-900 hover:text-slate-700">
             {tittle}
           </Link>
@@ -56,7 +56,7 @@ const Catalog: React.FC<IProps> = ({ tittles }) => {
   return (
     <div className="catalog__wrapper w-1/5 pl-4 pr-5 py-5  ">
       <div className="catalog__header">
-        <h1 className="text-xl text-slate-800 "> 🌩️ Index</h1>
+        <h1 className="text-xl text-white "> 🌩️ Index</h1>
       </div>
       <div className="catalog__main flex flex-row">
         <div className="left__bar"></div>

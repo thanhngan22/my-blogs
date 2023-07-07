@@ -1,13 +1,20 @@
+.catalog__wrapper {
+  background-color: rgba(19, 19, 20, 0.981);
+}
+
 .catalog__header {
   padding-left: 4px;
-  border: 1px solid #3d6279;
+  border-top: 1px solid #3d6279;
+  border-bottom: 1px solid #3d6279;
+
   border-radius: 4px;
 }
 
 .catalog__item {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   > a {
     font-weight: 500;
+    color: #fff;
 
     &:hover {
       color: rgb(129, 53, 53);
@@ -31,12 +38,19 @@
   }
 
   > a {
-    color: #435ec0;
+    color: #4373c0;
+    padding: 1px 0;
     padding-left: 16px;
     padding-right: 32px;
-    background-color: antiquewhite;
     border: 1px solid #435ec0;
     border-radius: 4px;
+
+    &:hover {
+    background-color: rgb(34, 50, 70);
+    color: white;
+    
+      
+    }
   }
 }
 
