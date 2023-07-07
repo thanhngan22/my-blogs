@@ -118,7 +118,7 @@ const Content: React.FC<IProps> = ({ data }) => {
   }, [content]);
 
   return (
-    <div className="content__wrapper w-3/5 overflow-y-auto overflow-x-hidden border-l">
+    <div className="content__wrapper w-3/5 overflow-y-auto overflow-x-hidden">
       <div className="blog__main">
         <ReactMarkdown
           children={content}

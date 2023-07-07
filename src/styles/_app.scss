@@ -1,28 +1,29 @@
-
 .header__wrapper {
-  /* background: linear-gradient(to right, #0c2357, #8c72c7); */
-  background: linear-gradient(to top right, rgb(129, 53, 53), rgb(15, 89, 119));
-
+  background: linear-gradient(to left, rgb(179, 117, 117), rgb(15, 89, 119));
 }
 
 .footer__wrapper {
-  /*background: linear-gradient(to left, #0c2357, #8c72c7);*/
-  background: linear-gradient(to top left, rgb(129, 53, 53), rgb(15, 89, 119));
-
+  background: linear-gradient(
+    to top left,
+    rgb(179, 117, 117),
+    rgb(15, 89, 119)
+  );
 }
 
 #main {
-  height: 96%;
+  height: 98%;
 }
 
 .main__container {
   height: 100%;
-    /* background: linear-gradient(to bottom right, #ffcccc, #ff99cc);   */
-    background: linear-gradient(to bottom right, #ffcccc, #7fa4b4,  hsl(150, 50%, 80%));  
-   /* background: linear-gradient(to bottom right,  #b9a1a7, rgb(156, 156, 108), hsl(150, 50%, 80%));  */
 
+  background: linear-gradient(
+    to right,
+    hsl(150, 50%, 68%),
+    rgb(141, 201, 217),
+    hsl(150, 50%, 70%)
+  );
 }
-
 
 /* scroll bar */
 ::-webkit-scrollbar {
@@ -31,11 +32,11 @@
 }
 
 ::-webkit-scroll-track {
-    /* background: slategrey; */
+  /* background: slategrey; */
 }
 
 ::-webkit-scrollbar-thumb {
   /* background: bisque; */
-  background: linear-gradient(to bottom,coral, pink, rgb(145, 51, 51));
+  background: linear-gradient(to bottom, coral, pink, rgb(145, 51, 51));
   border-radius: 8px;
 }

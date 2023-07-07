@@ -28,9 +28,8 @@ const Catalog: React.FC<IProps> = ({ tittles }) => {
       } else {
         item.classList.remove('current__topic');
       }
-    })
-
-  }, [location])
+    });
+  }, [location]);
 
   // console.log("tittles: ", tittles);
   const loading = <li key={0}>loading...</li>;
@@ -41,7 +40,7 @@ const Catalog: React.FC<IProps> = ({ tittles }) => {
     const list = tittles.map((tittle, index) => {
       const url = tittle.replace(/\s/g, '-').toLowerCase();
       return (
-        <li className="catalog__item" key={index} id={url} >
+        <li className="catalog__item" key={index} id={url}>
           <Link to={`/${url}`} className="text-slate-900 hover:text-slate-700">
             {tittle}
           </Link>
@@ -55,14 +54,14 @@ const Catalog: React.FC<IProps> = ({ tittles }) => {
   }, [tittles]);
 
   return (
-    <div className="catalog__wrapper w-1/5 pl-5 pr-5 py-5 overflow-auto overflow-x-hidden ">
+    <div className="catalog__wrapper w-1/5 pl-4 pr-5 py-5  ">
       <div className="catalog__header">
-        <h1 className="text-xl text-slate-900"> 📜 Table of contents</h1>
+        <h1 className="text-xl text-slate-800 "> 🌩️ Index</h1>
       </div>
-      <div className="catalog__main pl-10 pt-4">
-        <ul className="list__topics">
-          {jsx}
-          </ul>
+      <div className="catalog__main flex flex-row">
+        <div className="left__bar"></div>
+        <ul className="list__topics">{jsx}</ul>
+        {/* <div className="right__bar"></div> */}
       </div>
     </div>
   );
