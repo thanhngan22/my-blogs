@@ -4,38 +4,28 @@ import Catalog from './Catalog';
 import Content from './Content';
 import Sections from './Sections';
 
-// modules
-import FetchListPosts from '../modules/FetchListPosts';
-import { IPost } from '../interfaces';
+// interfaces
+import { IPost, ITPost } from '../interfaces';
 
 function Main() {
-  const [listTopics, setListTopics] = useState<string[]>([]);
-  const [data, setData] = useState<IPost[]>([]);
+    const filePath = 'data/TopicPosts.json';
 
-  useEffect(() => {
-    const data = FetchListPosts();
-    let listObj: IPost[];
-    data
-      .then((res) => {
-        // console.log('res: ', res);
-        listObj = res;
-        setData(listObj);
+
+    useEffect(() => {
+      fetch(filePath)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
       })
-      .then(() => {
-        const listTopics = listObj.map((obj) => {
-          return obj.topic;
-        });
-        // console.log('listTopics: ', listTopics);
-        setListTopics(listTopics);
-      });
-  }, []);
+      .catch(error => console.log(error))
+    }, []);
 
 
   return (
     <div className="main__container flex ">
-        <Catalog tittles={listTopics} />
-        <Content data={data} />
-        <Sections data={data} />
+        <Catalog />
+        <Content  />
+        <Sections />
         </div>
   )
 

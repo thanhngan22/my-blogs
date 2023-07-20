@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%F0%9F%93%9A-introduction">📚 Introduction</h2>
+<hr>
+<h2 id="%F0%9F%93%9A-module-1---understanding-linux-concept">📚 Module 1 - Understanding Linux Concept</h2>
+<ul>
+<li>
+<p>What is Linux?</p>
+</li>
+<li>
+<p>Unix vs. Linux</p>
+</li>
+<li>
+<p>Linux Distributions</p>
+</li>
+<li>
+<p>Linux Users</p>
+</li>
+<li>
+<p>Linux vs. Windows</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-module-2---download-install-and-configure">📚 Module 2 - Download, Install and Configure</h2>
+<ul>
+<li>
+<p>What is Virtual Box ?</p>
+</li>
+<li>
+<p>CentOS vs. CentOS Stream</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-module-3---system-access-and-file-system">📚 Module 3 - System Access and File System</h2>
+<ul>
+<li>
+<p>Important things to remember in Linux</p>
+</li>
+<li>
+<p>Access to Linux System</p>
+</li>
+<li>
+<p>Access Linux via Putty or SSH command line</p>
+</li>
+<li>
+<p>Command Prompts and Getting Prompts Back</p>
+</li>
+<li>
+<p>FileSystem Structure and Description</p>
+</li>
+<li>
+<p>FileSystem Navigation Commands (cd, ls and pwd)</p>
+</li>
+<li>
+<p>Linux File or Directory Properties</p>
+</li>
+<li>
+<p>Linux File Types</p>
+</li>
+<li>
+<p>What is root?</p>
+</li>
+<li>
+<p>Changing password</p>
+</li>
+<li>
+<p>Absolute and Relative Paths</p>
+</li>
+<li>
+<p>Creating Files and Directories (touch, cp, vi, mkdir)</p>
+</li>
+<li>
+<p>Copying directories</p>
+</li>
+<li>
+<p>Finding files and directories (find, locate)</p>
+</li>
+<li>
+<p>Difference between find and locate commands</p>
+</li>
+<li>
+<p>WildCards ( * , ? , [] )</p>
+</li>
+<li>
+<p>Soft and Hard Links (ln)</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-module-4---linux-fundamentals">📚 Module 4 - Linux Fundamentals</h2>
+<ul>
+<li>
+<p>Linux Command Syntax</p>
+</li>
+<li>
+<p>Files and Directory Permissions (chmod)</p>
+</li>
+<li>
+<p>File Permissions Using Numeric Mode</p>
+</li>
+<li>
+<p>File Ownership Commands (chown, chgrp)</p>
+</li>
+<li>
+<p>Access Control List (ACL)</p>
+</li>
+<li>
+<p>Help Commands</p>
+</li>
+<li>
+<p>TAB Completion and Up Arrow Keys</p>
+</li>
+<li>
+<p>Adding Text to Files</p>
+</li>
+<li>
+<p>Input and Output Redirects (&gt;, &gt;&gt;, &lt;, stdin, stdout, stderr)</p>
+</li>
+<li>
+<p>Standard Output to a file (tee command)</p>
+</li>
+<li>
+<p>Pipes (|)</p>
+</li>
+<li>
+<p>File Maintenance Commands (cp, mv, rm, mkdir, rmdir)</p>
+</li>
+<li>
+<p>File Display Commands (cat, more, less, head, tail)</p>
+</li>
+<li>
+<p>Filters/ Text Processing Commands</p>
+</li>
+<li>
+<p>cut - Text Processors Commands</p>
+</li>
+<li>
+<p>awk - Text Processors Commands</p>
+</li>
+<li>
+<p>grep/egrep - Text Processors Commands</p>
+</li>
+<li>
+<p>sort/uniq - Text Processors Commands</p>
+</li>
+<li>
+<p>wc - Text Processors Commands</p>
+</li>
+<li>
+<p>Compare Files (diff, cmp)</p>
+</li>
+<li>
+<p>Compress and Uncompress Files (gzip, gunzip, tar)</p>
+</li>
+<li>
+<p>Truncate File Size (truncate)</p>
+</li>
+<li>
+<p>Combining and Splitting Files</p>
+</li>
+<li>
+<p>Linux vs. Windows Commands</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-module-5---system-administration">📚 Module 5 - System Administration</h2>
+<ul>
+<li>
+<p>Linux File Editor (vi)</p>
+</li>
+<li>
+<p>Difference between vi and vim Editors</p>
+</li>
+<li>
+<p>&quot;sed&quot; command</p>
+</li>
+<li>
+<p>User Account Management (useradd, groupadd, usermod, userdel, groupmod, groupdel)</p>
+</li>
+<li>
+<p>Enable Password Aging</p>
+</li>
+<li>
+<p>Switch Users and Sudo Access (su, sudo)</p>
+</li>
+<li>
+<p>Monitor Users (who, last, w, id)</p>
+</li>
+<li>
+<p>Talking to Users (users, wall, write)</p>
+</li>
+<li>
+<p>Linux Directory Service - Account Authentication</p>
+</li>
+<li>
+<p>Difference between Active Directory, LDAP, IDM, WinBIND, OpenLDAP etc</p>
+</li>
+<li>
+<p>System Utility Commands (date, uptime, hostname, uname, which, cal, bc)</p>
+</li>
+<li>
+<p>Processes, Jobs and Scheduling</p>
+</li>
+<li>
+<p>systemctl command</p>
+</li>
+<li>
+<p>ps command</p>
+</li>
+<li>
+<p>top command</p>
+</li>
+<li>
+<p>kill command</p>
+</li>
+<li>
+<p>crontab command</p>
+</li>
+<li>
+<p>at command</p>
+</li>
+<li>
+<p>Additional cronjobs (hourly, daily, weekly, monthly)</p>
+</li>
+<li>
+<p>Process Management (bg, fg, nice)</p>
+</li>
+<li>
+<p>System Monitoring Commands (df, dmesg, iostat 1, netstat, free, top)</p>
+</li>
+<li>
+<p>System Logs Monitor (/var/log)</p>
+</li>
+<li>
+<p>System Maintenance Commands (shutdown, init, reboot, halt)</p>
+</li>
+<li>
+<p>Changing System Hostname (hostnamectl)</p>
+</li>
+<li>
+<p>Finding System Information (uname, dmidecode)</p>
+</li>
+<li>
+<p>Finding System Architecture (arch)</p>
+</li>
+<li>
+<p>Terminal Controls Keys</p>
+</li>
+<li>
+<p>Terminal Commands (clear, exit, script)</p>
+</li>
+<li>
+<p>Recover Root Password</p>
+</li>
+<li>
+<p>SOS Report</p>
+</li>
+<li>
+<p>Environment Variables</p>
+</li>
+<li>
+<p>Special Permissions with setuid, setgid and stick bit</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-module-6---shell-scripting">📚 Module 6 - Shell Scripting</h2>
+<ul>
+<li>
+<p>Linux Kernel</p>
+</li>
+<li>
+<p>What is a Shell ?</p>
+</li>
+<li>
+<p>Types of Shells</p>
+</li>
+<li>
+<p>Shell Scripting</p>
+</li>
+<li>
+<p>Basic shell scripts</p>
+</li>
+<li>
+<p>Input and Output of Script</p>
+</li>
+<li>
+<p>if-then Scripts</p>
+</li>
+<li>
+<p>for-loop Scripts</p>
+</li>
+<li>
+<p>do-while Scripts</p>
+</li>
+<li>
+<p>Case Statement Scripts</p>
+</li>
+<li>
+<p>Check Remote Servers Connectivity</p>
+</li>
+<li>
+<p>Aliases (alias)</p>
+</li>
+<li>
+<p>User and Global Aliases</p>
+</li>
+<li>
+<p>Shell History (history)</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-module-7---networking-services-and-system-updates">📚 Module 7 - Networking, Services, and System Updates</h2>
+<ul>
+<li>
+<p>Enable Internet on Linux VM</p>
+</li>
+<li>
+<p>Network Components</p>
+</li>
+<li>
+<p>Network Files and Commands (ping, ifconfig, ifup, ifdown, netstat, tcpdump)</p>
+</li>
+<li>
+<p>NIC Information (ethtool)</p>
+</li>
+<li>
+<p>NIC or Port Bonding</p>
+</li>
+<li>
+<p>New Network Utilities (nmtui, nmcli, nm-connection-editor and GNOME Settings)</p>
+</li>
+<li>
+<p>Downloading Files or Apps (wget)</p>
+</li>
+<li>
+<p>curl and ping commands</p>
+</li>
+<li>
+<p>FTP - File Transfer Protocol</p>
+</li>
+<li>
+<p>SCP - Secure Copy Protocol</p>
+</li>
+<li>
+<p>rsync - Remote Synchronization</p>
+</li>
+<li>
+<p>Systems Updates and Repos (rpm, yum)</p>
+</li>
+<li>
+<p>System Upgrade and Patch Management</p>
+</li>
+<li>
+<p>Create Local Repository (Yum Server)</p>
+</li>
+<li>
+<p>Advance Package Management</p>
+</li>
+<li>
+<p>Rollback Patches and Updates</p>
+</li>
+<li>
+<p>SSH and Telnet</p>
+</li>
+<li>
+<p>DNS - Download, Install and Configure (domain name systems)</p>
+</li>
+<li>
+<p>Hostname or IP Lookup (nslookup, dig)</p>
+</li>
+<li>
+<p>Network Time Protocol (NTP)</p>
+</li>
+<li>
+<p>chronyd (New Version of NTP)</p>
+</li>
+<li>
+<p>New System Utility Command (timedatectl)</p>
+</li>
+<li>
+<p>Sendmail</p>
+</li>
+<li>
+<p>Web Server (Apache - HTTP)</p>
+</li>
+<li>
+<p>Central Loggers (rsyslog)</p>
+</li>
+<li>
+<p>Securing Linux Machine (OS Hardening)</p>
+</li>
+<li>
+<p>OpenLDAP Installation</p>
+</li>
+<li>
+<p>Tracing Network Traffic (traceroute)</p>
+</li>
+<li>
+<p>How to open Image File through command line</p>
+</li>
+<li>
+<p>Configure and Secure SSH</p>
+</li>
+<li>
+<p>SSH-Keys - Access Remote Server without Password</p>
+</li>
+<li>
+<p>Linux Web - based Administration (cockpit)</p>
+</li>
+<li>
+<p>Firewall</p>
+</li>
+<li>
+<p>Tune System Performance (tuned, nice and renice)</p>
+</li>
+<li>
+<p>Run Containers - dockers and podman</p>
+</li>
+<li>
+<p>Kickstart (Automate Linux Installation)</p>
+</li>
+<li>
+<p>DHCP Server</p>
+</li>
+</ul>
+<hr>
+<h2 id="%F0%9F%93%9A-module-8---disk-management-and-run-levels">📚 Module 8 - Disk Management and Run Levels</h2>
+<ul>
+<li>
+<p>System Run Levels (0 thru 6)</p>
+</li>
+<li>
+<p>Computer Boot Process</p>
+</li>
+<li>
+<p>Linux Boot Process</p>
+</li>
+<li>
+<p>Linux Boot Process (Newer Versions)</p>
+</li>
+<li>
+<p>Message of the Day (MOTD)</p>
+</li>
+<li>
+<p>Customize Message of the Day</p>
+</li>
+<li>
+<p>Storage</p>
+</li>
+<li>
+<p>Disk Partition (df, fdisk)</p>
+</li>
+<li>
+<p>Add Disk and Create Standard Partition</p>
+</li>
+<li>
+<p>Logical Volume Management (LVM)</p>
+</li>
+<li>
+<p>LVM Configuration During Installation</p>
+</li>
+<li>
+<p>Add Disk and Create New LVM Partition (pvcreate, vgcreate, lvcreate)</p>
+</li>
+<li>
+<p>Extend Disk using LVM</p>
+</li>
+<li>
+<p>Adding Swap Space</p>
+</li>
+<li>
+<p>Advance Storage Management with Stratis</p>
+</li>
+<li>
+<p>RAID</p>
+</li>
+<li>
+<p>File System Check (fsck and xfs_repair)</p>
+</li>
+<li>
+<p>System Backup (dd Command)</p>
+</li>
+<li>
+<p>Network File System (NFS)</p>
+</li>
+<li>
+<p>Samba Installation and Configuration</p>
+</li>
+<li>
+<p>NAS Drive for NFS or Samba</p>
+</li>
+<li>
+<p>SATA and SAS</p>
+</li>
+<li>
+<p>Difference between CentOS/ Redhat 5, 6 and 7</p>
+</li>
+<li>
+<p>Difference between CentOS/ RHEL 7 and 8</p>
+</li>
+</ul>
+<hr>
+
+</body>
+</html>

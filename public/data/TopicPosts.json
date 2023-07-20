@@ -1,0 +1,41 @@
+[
+    {
+        "topic": "Linux Fundamentals",
+        "path": "/linux",
+        "posts": [
+            {
+                "id": 1,
+                "date": "08/07/2023",
+                "title": "Introduction to Linux",
+                "path": "/introduction",
+                "source": "/data/blogs/Linux/readme.html"
+            }
+        ]
+    },
+    {
+        "topic": "Computer Architecture",
+        "path": "/computer-architecture",
+        "posts": [
+            {
+                "id": 1,
+                "date": "08/07/2023",
+                "title": "Overview",
+                "path": "/overview",
+                "source": "/data/blogs/Computer-Architecture/readme.html"
+            }
+        ]
+    },
+    {
+        "topic": "Latex Fundamentals",
+        "path": "/latex",
+        "posts": [
+            {
+                "id": 1,
+                "date": "08/07/2023",
+                "title": "Introduction to Latex",
+                "path": "/introduction",
+                "source": "/data/blogs/Latex/readme.html"
+            }
+        ]
+    }
+]

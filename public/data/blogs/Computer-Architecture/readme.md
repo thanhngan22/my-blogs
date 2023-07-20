@@ -1,4 +1,36 @@
+# 💦 Computer System 
 
+## 📈 Summary
+
+```mermaid 
+graph LR
+A[Computer System] --> B[Fetch - Decode - Execute Cycle]
+A --> C[Assembly Language Programming ]
+A --> D[Instruction Set Architecture]
+A --> E[CPU Benchmarking]
+A --> F[CPU Organization and Structure]
+A --> G[CPU Pipelining]
+A --> H[Input - Output Organization]
+A --> I[Memory Organization]
+A --> J[Hierarchical Bus Organization]
+```
+ 
+___
+
+## 📚 List of contents
+
+- [Introduction to Computer Organization and Architecture]() </br>
+- [Fetch - Decode - Execute Cycle]() </br>
+- [Assembly Language Programming with the Little Man Computer]() </br>
+- [Instruction Set Architecture (ISA)]() </br>
+- [CPU Benchmarking]() </br>
+- [CPU Organization and Structure]() </br>
+- [CPU Pipelining]() </br>
+- [Input - Output Organization]() </br>
+- [Memory Organization]() </br>
+- [Hierarchical Bus Organization]() </br>
+
+___
 
 ## 📚 Introduction to Computer Organization and Architecture
 

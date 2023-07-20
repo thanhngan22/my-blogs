@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 align="center" >
+Kiến thức gõ latex cơ bản
+</h2>
+<h3 id="danh-s%C3%A1ch-m%E1%BB%A5c-l%E1%BB%A5c">Danh sách mục lục:</h3>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#1-to%C3%A1n-t%E1%BB%AD-%C4%91%C6%A1n-nh%E1%BA%A5t">1. Toán tử đơn nhất</a></td>
+<td><a href="#2-to%C3%A1n-t%E1%BB%AD-hai-ng%C3%B4i">2. Toán tử hai ngôi</a></td>
+</tr>
+<tr>
+<td><a href="#3-k%C3%BD-hi%E1%BB%87u-logic">3. Ký hiệu logic</a></td>
+<td><a href="#4-d%E1%BA%A5u-ngo%E1%BA%B7c">4. Các dấu ngoặc</a></td>
+</tr>
+<tr>
+<td><a href="#5-d%E1%BA%A5u-m%C5%A9i-t%C3%AAn">5. Các dấu mũi tên</a></td>
+<td><a href="#6-k%C3%BD-hi%E1%BB%87u-trong-%C4%91%E1%BA%A1i-s%E1%BB%91">6. Ký hiệu trong đại số</a></td>
+</tr>
+<tr>
+<td><a href="#7-h%E1%BB%87-ph%C6%B0%C6%A1ng-tr%C3%ACnh-ma-tr%E1%BA%ADn-vector">7. Hệ phương trình, ma trận, vector</a></td>
+<td><a href="#8-h%C3%A0m-l%C6%B0%E1%BB%A3ng-gi%C3%A1c">8. Hàm lượng giác</a></td>
+</tr>
+<tr>
+<td><a href="#9-k%C3%BD-hi%E1%BB%87u-trong-h%C3%ACnh-h%E1%BB%8Dc">9. Ký hiệu trong hình học</a></td>
+<td><a href="#10-ph%C3%A9p-to%C3%A1n-t%E1%BA%ADp-h%E1%BB%A3p">10. Phép toán tập hợp</a></td>
+</tr>
+<tr>
+<td><a href="#11-k%C3%BD-hi%E1%BB%87u-hy-l%E1%BA%A1p">11. Ký hiệu Hy Lạp</a></td>
+<td><a href="#12-bi%E1%BB%83u-%C4%91%E1%BB%93">12. Biểu đồ</a></td>
+</tr>
+<tr>
+<td><a href="#13-c%C3%A1c-k%C3%BD-hi%E1%BB%87u-kh%C3%A1c">13. Các ký hiệu khác</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+ </div>
+<!-- Toán tử đơn nhất -->
+<h4 id="1-to%C3%A1n-t%E1%BB%AD-%C4%91%C6%A1n-nh%E1%BA%A5t">1. Toán tử đơn nhất</h4>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Kí hiệu</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dấu cộng</td>
+<td><code>+</code></td>
+<td>$+$</td>
+</tr>
+<tr>
+<td>Dấu trừ</td>
+<td><code>-</code></td>
+<td>$-$</td>
+</tr>
+<tr>
+<td>Dấu nhân</td>
+<td><code>\times</code></td>
+<td>$\times$</td>
+</tr>
+<tr>
+<td>Phép phủ định</td>
+<td><code>\neg</code></td>
+<td>$\neg$</td>
+</tr>
+<tr>
+<td>Giai thừa</td>
+<td><code>!</code></td>
+<td>$!$</td>
+</tr>
+<tr>
+<td>Dấu khác</td>
+<td><code>\#</code></td>
+<td>$\#$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Toán tử hai ngôi -->
+<h4 id="2-to%C3%A1n-t%E1%BB%AD-hai-ng%C3%B4i">2. Toán tử hai ngôi</h4>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Kí hiệu</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dấu chia</td>
+<td><code>\div</code></td>
+<td>$\div$</td>
+</tr>
+<tr>
+<td>Dấu hoa thị</td>
+<td><code>\ast</code></td>
+<td>$\ast$</td>
+</tr>
+<tr>
+<td>Dấu sao</td>
+<td><code>\star</code></td>
+<td>$\star$</td>
+</tr>
+<tr>
+<td>Dấu cộng trừ</td>
+<td><code>\pm</code></td>
+<td>$\pm$</td>
+</tr>
+<tr>
+<td>Dấu trừ cộng</td>
+<td><code>\mp</code></td>
+<td>$\mp$</td>
+</tr>
+</tbody>
+</table>
+ </div>
+<!-- Ký hiệu logic -->
+<h4 id="3-k%C3%BD-hi%E1%BB%87u-logic">3. Ký hiệu logic</h4>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Kí hiệu</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tồn tại</td>
+<td><code>\exists</code></td>
+<td>$\exists$</td>
+</tr>
+<tr>
+<td>Tồn tại duy nhất</td>
+<td><code>\exists!</code></td>
+<td>$\exists!$</td>
+</tr>
+<tr>
+<td>Với mọi</td>
+<td><code>\forall</code></td>
+<td>$\forall$</td>
+</tr>
+<tr>
+<td>Và</td>
+<td><code>\wedge</code>, <code>\land</code></td>
+<td>$\wedge$</td>
+</tr>
+<tr>
+<td>Hoặc</td>
+<td><code>\vee</code>, <code>\lor</code></td>
+<td>$\vee$</td>
+</tr>
+<tr>
+<td>Phủ định</td>
+<td><code>\neg</code></td>
+<td>$\neg$</td>
+</tr>
+<tr>
+<td>Tương đương</td>
+<td><code>\Leftrightarrow</code>, <code>\iff</code></td>
+<td>$\Leftrightarrow$</td>
+</tr>
+<tr>
+<td>Suy ra</td>
+<td><code>\Rightarrow</code>, <code>\implies</code></td>
+<td>$\Rightarrow$</td>
+</tr>
+<tr>
+<td>Trùng</td>
+<td><code>\equiv</code></td>
+<td>$\equiv$</td>
+</tr>
+<tr>
+<td>Suy ngược</td>
+<td><code>\Leftarrow</code>, <code>\impliedby</code></td>
+<td>$\Leftarrow$</td>
+</tr>
+</tbody>
+</table>
+ </div>
+<!-- Dấu ngoặc -->
+<h4 id="4-d%E1%BA%A5u-ngo%E1%BA%B7c">4. Dấu ngoặc</h4>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Kí hiệu</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dấu ngoặc đơn</td>
+<td><code>\left( a \right)</code></td>
+<td>$\left( a \right)$</td>
+</tr>
+<tr>
+<td>Dấu ngoặc nhọn</td>
+<td><code>\left\{ a \right\}</code></td>
+<td>$\left\{ a \right\}$</td>
+</tr>
+<tr>
+<td>Dấu ngoặc vuông</td>
+<td><code>\left[ a \right]</code></td>
+<td>$\left[ a \right]$</td>
+</tr>
+<tr>
+<td>Sọc thẳng đứng</td>
+<td><code>\mid</code></td>
+<td>$a \mid b$</td>
+</tr>
+<tr>
+<td></td>
+<td><code>\lceil</code>, <code>\rceil</code></td>
+<td>$\lceil a \rceil$</td>
+</tr>
+<tr>
+<td></td>
+<td><code>\lfloor</code>, <code>\rfloor</code></td>
+<td>$\lfloor a \rfloor$</td>
+</tr>
+<tr>
+<td></td>
+<td><code>\ulcorner</code>, <code>\urcorner</code></td>
+<td>$\ulcorner a \urcorner$</td>
+</tr>
+<tr>
+<td></td>
+<td><code>\llcorner</code>, <code>\lrcorner</code></td>
+<td>$\llcorner a \lrcorner$</td>
+</tr>
+</tbody>
+</table>
+ </div>
+<!-- Dấu mũi tên -->
+<h4 id="5-d%E1%BA%A5u-m%C5%A9i-t%C3%AAn">5. Dấu mũi tên</h4>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\rightarrow</code> hay <code>\to</code></td>
+<td>$\rightarrow$</td>
+<td><code>\leftarrow</code> hoặc <code>\gets</code></td>
+<td>$\leftarrow$</td>
+<td><code>\Rightarrow</code></td>
+<td>$\Rightarrow$</td>
+</tr>
+<tr>
+<td><code>\Leftarrow</code></td>
+<td>$\Leftarrow$</td>
+<td><code>\leftrightarrow</code></td>
+<td>$\leftrightarrow$</td>
+<td><code>\Leftrightarrow</code></td>
+<td>$\Leftrightarrow$</td>
+</tr>
+<tr>
+<td><code>\mapsto</code></td>
+<td>$\mapsto$</td>
+<td><code>\longmapsto</code></td>
+<td>$\longmapsto$</td>
+<td><code>\uparrow</code></td>
+<td>$\uparrow$</td>
+</tr>
+<tr>
+<td><code>\downarrow</code></td>
+<td>$\downarrow$</td>
+<td><code>\updownarrow</code></td>
+<td>$\updownarrow$</td>
+<td><code>\Uparrow</code></td>
+<td>$\Uparrow$</td>
+</tr>
+<tr>
+<td><code>\Downarrow</code></td>
+<td>$\Downarrow$</td>
+<td><code>\Updownarrow</code></td>
+<td>$\Updownarrow$</td>
+<td><code>\nearrow</code></td>
+<td>$\nearrow$</td>
+</tr>
+<tr>
+<td><code>\searrow</code></td>
+<td>$\searrow$</td>
+<td><code>\swarrow</code></td>
+<td>$\swarrow$</td>
+<td><code>\nwarrow</code></td>
+<td>$\nwarrow$</td>
+</tr>
+<tr>
+<td><code>\leftharpoonup</code></td>
+<td>$\leftharpoonup$</td>
+<td><code>\rightharpoonup</code></td>
+<td>$\rightharpoonup$</td>
+<td><code>\leftharpoondown</code></td>
+<td>$\leftharpoondown$</td>
+</tr>
+<tr>
+<td><code>\rightharpoondown</code></td>
+<td>$\rightharpoondown$</td>
+<td><code>\hookleftarrow</code></td>
+<td>$\hookleftarrow $</td>
+<td><code>\hookrightarrow</code></td>
+<td>$\hookrightarrow$</td>
+</tr>
+<tr>
+<td><code>\rightleftharpoons</code></td>
+<td>$\rightleftharpoons$</td>
+<td><code>\leadsto</code></td>
+<td>$\leadsto$</td>
+<td><code>\dashrightarrow</code></td>
+<td>$\dashrightarrow$</td>
+</tr>
+<tr>
+<td><code>\dashleftarrow</code></td>
+<td>$\dashleftarrow$</td>
+<td><code>\longleftarrow</code></td>
+<td>$\longleftarrow$</td>
+<td><code>\longrightarrow</code></td>
+<td>$\longrightarrow$</td>
+</tr>
+<tr>
+<td><code>\longleftrightarrow</code></td>
+<td>$\longleftrightarrow$</td>
+<td><code>\Longleftarrow</code></td>
+<td>$\Longleftarrow$</td>
+<td><code>\Longrightarrow</code></td>
+<td>$\Longrightarrow$</td>
+</tr>
+<tr>
+<td><code>\Longleftrightarrow</code></td>
+<td>$\Longleftrightarrow$</td>
+<td><code>\longmapsto</code></td>
+<td>$\longmapsto$</td>
+<td><code>\iff</code></td>
+<td>$\iff$</td>
+</tr>
+<tr>
+<td><code>\upuparrows</code></td>
+<td>$\upuparrows$</td>
+<td><code>\downdownarrows</code></td>
+<td>$\downdownarrows$</td>
+<td><code>\upharpoonright</code></td>
+<td>$\upharpoonright$</td>
+</tr>
+<tr>
+<td><code>\downharpoonright</code></td>
+<td>$\downharpoonright$</td>
+<td><code>\upharpoonleft</code></td>
+<td>$\upharpoonleft$</td>
+<td><code>\downharpoonleft</code></td>
+<td>$\downharpoonleft$</td>
+</tr>
+<tr>
+<td><code>\rightsquigarrow</code></td>
+<td>$\rightsquigarrow$</td>
+<td><code>\leftrightsquigarrow</code></td>
+<td>$\leftrightsquigarrow$</td>
+<td><code>\looparrowleft</code></td>
+<td>$\looparrowleft$</td>
+</tr>
+<tr>
+<td><code>\looparrowright</code></td>
+<td>$\looparrowright$</td>
+<td><code>\circlearrowleft</code></td>
+<td>$\circlearrowleft$</td>
+<td><code>\circlearrowright</code></td>
+<td>$\circlearrowright$</td>
+</tr>
+<tr>
+<td><code>\curvearrowleft</code></td>
+<td>$\curvearrowleft$</td>
+<td><code>\curvearrowright</code></td>
+<td>$\curvearrowright$</td>
+<td><code>\multimap</code></td>
+<td>$\multimap$</td>
+</tr>
+<tr>
+<td><code>\leftrightsquigarrow</code></td>
+<td>$\leftrightsquigarrow$</td>
+<td><code>\leftrightsquigarrow</code></td>
+<td>$\leftrightsquigarrow$</td>
+<td><code>\leftrightsquigarrow</code></td>
+<td>$\leftrightsquigarrow$</td>
+</tr>
+</tbody>
+</table>
+ </div>
+<ul>
+<li>Mũi tên có chỉ số:</li>
+</ul>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\xrightarrow{abc}</code></td>
+<td>$a \xrightarrow{abc} b$</td>
+</tr>
+<tr>
+<td><code>\xleftarrow{abc}</code></td>
+<td>$a \xleftarrow{abc} b$</td>
+</tr>
+<tr>
+<td><code>\xRightarrow{abc}</code></td>
+<td>$a \xRightarrow{abc} b$</td>
+</tr>
+<tr>
+<td><code>\xLeftarrow{abc}</code></td>
+<td>$a \xLeftarrow{abc} b$</td>
+</tr>
+<tr>
+<td><code>A\xleftarrow{n+\mu-1}B \xrightarrow[T]{n\pm i-1}C</code></td>
+<td>$A\xleftarrow{n+\mu-1}B \xrightarrow[T]{n\pm i-1}C$</td>
+</tr>
+</tbody>
+</table>
+ </div>
+<!-- Các ký hiệu trong đại số -->
+<h4 id="6-k%C3%BD-hi%E1%BB%87u-trong-%C4%91%E1%BA%A1i-s%E1%BB%91">6. Ký hiệu trong đại số</h4>
+<div align="center">
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+<th>Ký hiệu</th>
+<th>Cách gõ</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mũ:</td>
+<td><code>^</code></td>
+<td>$a^2$, $a^{2x}$</td>
+<td>Chỉ số:</td>
+<td><code>_</code></td>
+<td>$a_1$, $a_{2}$</td>
+</tr>
+<tr>
+<td>Phân số:</td>
+<td><code>\frac{a}{b}</code></td>
+<td>$\frac{a}{b}$</td>
+<td>Dấu căn:</td>
+<td><code>\sqrt{a}</code></td>
+<td>$\sqrt{a}$</td>
+</tr>
+<tr>
+<td>Dấu chấm:</td>
+<td><code>\cdots</code></td>
+<td>$a_1, a_2, \cdots, a_n$</td>
+<td>Dấu chấm dọc:</td>
+<td><code>\vdots</code></td>
+<td>$\vdots$</td>
+</tr>
+<tr>
+<td>Tích phân:</td>
+<td><code>\int_{a}^{b} f(x) dx</code></td>
+<td>$\int_{a}^{b} f(x) dx$</td>
+<td>Tích phân kép:</td>
+<td><code>\iint_{a}^{b} f(x) dx</code></td>
+<td>$\iint_{a}^{b} f(x) dx$</td>
+</tr>
+<tr>
+<td>Tích phân ba:</td>
+<td><code>\iiint_{a}^{b} f(x) dx</code></td>
+<td>$\iiint_{a}^{b} f(x) dx$</td>
+<td>Tích phân đường cong:</td>
+<td><code>\oint_{a}^{b} f(x) dx</code></td>
+<td>$\oint_{a}^{b} f(x) dx$</td>
+</tr>
+<tr>
+<td>Tổng:</td>
+<td><code>\sum_{i=1}^{n} a_i</code></td>
+<td>$\sum_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \sum_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \sum_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td>Tích:</td>
+<td><code>\prod_{i=1}^{n} a_i</code></td>
+<td>$\prod_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \prod_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \prod_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td>Hợp:</td>
+<td><code>\bigcup_{i=1}^{n} a_i</code></td>
+<td>$\bigcup_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \bigcup_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \bigcup_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td>Giao:</td>
+<td><code>\bigcap_{i=1}^{n} a_i</code></td>
+<td>$\bigcap_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \bigcap_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \bigcap_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td>Hợp trực tiếp:</td>
+<td><code>\coprod_{i=1}^{n} a_i</code></td>
+<td>$\coprod_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \coprod_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \coprod_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td>Hợp chính quy:</td>
+<td><code>\bigvee_{i=1}^{n} a_i</code></td>
+<td>$\bigvee_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \bigvee_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \bigvee_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td>Giao chính quy:</td>
+<td><code>\bigwedge_{i=1}^{n} a_i</code></td>
+<td>$\bigwedge_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \bigwedge_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \bigwedge_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td>Hợp trực tiếp:</td>
+<td><code>\biguplus_{i=1}^{n} a_i</code></td>
+<td>$\biguplus_{i=1}^{n} a_i$</td>
+<td></td>
+<td><code>displaystyle \biguplus_{i=1}^{n} a_i</code></td>
+<td>$\displaystyle \biguplus_{i=1}^{n} a_i$</td>
+</tr>
+<tr>
+<td></td>
+<td><code>\bigsqcup_{i=1}^{n} a_i</code></td>
+<td>$\bigsqcup_{i=1}^{n} a_i$</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Giới hạn:</td>
+<td><code>\lim_{x \to \infty} f(x)</code></td>
+<td>$\lim_{x \to \infty} f(x)$</td>
+<td></td>
+<td><code>displaystyle \lim_{x \to \infty} f(x)</code></td>
+<td>$\displaystyle \lim_{x \to \infty} f(x)$</td>
+</tr>
+<tr>
+<td>Vô cực:</td>
+<td><code>\infty</code></td>
+<td>$\infty$</td>
+<td></td>
+<td><code>\displaystyle \infty</code></td>
+<td>$\displaystyle \infty$</td>
+</tr>
+<tr>
+<td>Hàm logarit:</td>
+<td><code>\log_{a} b</code></td>
+<td>$\log_{a} b$</td>
+<td></td>
+<td><code> \ln(x)</code></td>
+<td>$\displaystyle \ln{x} $</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Chú thích: <code>a^n=\underset{n\text{ lần}}{\underbrace{a\cdot a\cdot a\cdot \ldots \cdot a}}</code>
+Ví dụ: $a^n=\underset{n\text{ lần}}{\underbrace{a\cdot a\cdot a\cdot \ldots \cdot a}}$</li>
+</ul>
+<h4 id="7-h%E1%BB%87-ph%C6%B0%C6%A1ng-tr%C3%ACnh-ma-tr%E1%BA%ADn-vector">7. Hệ phương trình, ma trận, vector:</h4>
+<ul>
+<li>Hệ:</li>
+</ul>
+<pre class="hljs"><code><div>\begin{cases} 
+a &amp; \text{if } b \\
+c &amp; \text{if } d 
+\end{cases}
+</div></code></pre>
+<p>Ví dụ:
+$\begin{cases}a&amp;\text{if}b\c&amp;\text{if}d\end{cases}$</p>
+<pre class="hljs"><code><div> \begin{cases} 
+ x + y &amp; = 5\\ 
+ x - y &amp; = 3 
+ \end{cases}
+</div></code></pre>
+<p>Hiển thị: $$\begin{cases} x + y &amp; = 5\ x - y &amp; = 3 \end{cases}$$</p>
+<!-- 
+- Tuyển: 
+```
+\left[ 
+\begin{matrix}
+ x - 1 &= 0 & (*) \\ 
+ y + 1 &= 0 & (**) 
+ \end{matrix} 
+ \right.
+ ```
+
+Ví dụ: $$\left[ \begin{matrix} x - 1 &= 0 & (*) \\ y + 1 &= 0 & (**) \end{matrix} \right.$$ -->
+<ul>
+<li>Ma trận:</li>
+</ul>
+<pre class="hljs"><code><div>\begin{matrix} 
+a &amp; b \\ 
+c &amp; d 
+\end{matrix}
+
+</div></code></pre>
+<p>Hiển thị: $$\begin{matrix} a &amp; b \ c &amp; d \end{matrix}$$</p>
+<pre class="hljs"><code><div>\begin{pmatrix} 
+a &amp; b \\ 
+c &amp; d 
+\end{pmatrix}
+</div></code></pre>
+<p>Hiển thị: $$\begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix}$$</p>
+<pre class="hljs"><code><div>\begin{bmatrix} 
+a &amp; b \\ 
+c &amp; d 
+\end{bmatrix}
+</div></code></pre>
+<p>Hiển thị: $$\begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$$</p>
+<ul>
+<li>Định thức:</li>
+</ul>
+<pre class="hljs"><code><div>\begin{vmatrix} 
+a &amp; b \\ 
+c &amp; d 
+\end{vmatrix}
+</div></code></pre>
+<p>Hiển thị: $$\begin{vmatrix} a &amp; b \ c &amp; d \end{vmatrix}$$</p>
+<pre class="hljs"><code><div>\begin{Vmatrix} 
+a &amp; b \\ 
+c &amp; d 
+\end{Vmatrix}
+</div></code></pre>
+<p>Hiển thị: $$\begin{Vmatrix} a &amp; b \ c &amp; d \end{Vmatrix}$$</p>
+<!-- Hàm lượng giác -->
+<h4 id="8-h%C3%A0m-l%C6%B0%E1%BB%A3ng-gi%C3%A1c">8. Hàm lượng giác:</h4>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\sin(x)</code></td>
+<td>$\sin(x)$</td>
+<td><code>\cos(x)</code></td>
+<td>$\cos(x)$</td>
+</tr>
+<tr>
+<td><code>\tan(x)</code></td>
+<td>$\tan(x)$</td>
+<td><code>\cot(x)</code></td>
+<td>$\cot(x)$</td>
+</tr>
+<tr>
+<td><code>\sec(x)</code></td>
+<td>$\sec(x)$</td>
+<td><code>\csc(x)</code></td>
+<td>$\csc(x)$</td>
+</tr>
+<tr>
+<td><code>\sinh(x)</code></td>
+<td>$\sinh(x)$</td>
+<td><code>\cosh(x)</code></td>
+<td>$\cosh(x)$</td>
+</tr>
+<tr>
+<td><code>\tanh(x)</code></td>
+<td>$\tanh(x)$</td>
+<td><code>\coth(x)</code></td>
+<td>$\coth(x)$</td>
+</tr>
+<tr>
+<td><code>\operatorname{arcsin}(x)</code></td>
+<td>$\operatorname{arcsin}(x)$</td>
+<td><code>\operatorname{arccos}(x)</code></td>
+<td>$\operatorname{arccos}(x)$</td>
+</tr>
+<tr>
+<td><code>\operatorname{arctan}(x)</code></td>
+<td>$\operatorname{arctan}(x)$</td>
+<td><code>\operatorname{arccot}(x)</code></td>
+<td>$\operatorname{arccot}(x)$</td>
+</tr>
+</tbody>
+</table>
+<!-- - Hàm sin: `\sin(x)`
+Ví dụ: $\sin(x)$
+- Hàm cos: `\cos(x)`
+Ví dụ: $\cos(x)$
+- Hàm tan: `\tan(x)`
+Ví dụ: $\tan(x)$
+- Hàm cot: `\cot(x)`
+Ví dụ: $\cot(x)$
+- Hàm sec: `\sec(x)`
+Ví dụ: $\sec(x)$    
+- Hàm cosec: `\csc(x)`
+Ví dụ: $\csc(x)$
+- Hàm sinh: `\sinh(x)`
+Ví dụ: $\sinh(x)$
+- Hàm cosh: `\cosh(x)`
+Ví dụ: $\cosh(x)$
+- Hàm tanh: `\tanh(x)`
+Ví dụ: $\tanh(x)$
+-Hàm arcsinh: `\operatorname{arcsinh}(x)`
+Ví dụ: $\operatorname{arcsinh}(x)$ -->
+<!-- Ký hiệu hình học -->
+<h4 id="9-k%C3%BD-hi%E1%BB%87u-trong-h%C3%ACnh-h%E1%BB%8Dc">9. Ký hiệu trong hình học:</h4>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\overline{AB}</code></td>
+<td>$\overline{AB}$</td>
+<td><code>\angle ABC</code></td>
+<td>$\angle ABC$</td>
+</tr>
+<tr>
+<td><code>\overleftrightarrow{AB}</code></td>
+<td>$\overleftrightarrow{AB}$</td>
+<td><code>\vec{a}</code></td>
+<td>$\vec{a}$</td>
+</tr>
+<tr>
+<td><code>\overrightarrow{AB}</code></td>
+<td>$\overrightarrow{AB}$</td>
+<td><code>\measuredangle ABC</code></td>
+<td>$\measuredangle ABC$</td>
+</tr>
+<tr>
+<td><code>\square</code></td>
+<td>$\square$</td>
+<td><code>\triangle ABC</code></td>
+<td>$\triangle ABC$</td>
+</tr>
+</tbody>
+</table>
+<!-- - Độ dài: `\overline{AB}`
+Ví dụ: $\overline{AB}$
+
+- Góc: `\angle ABC`
+Ví dụ: $\angle ABC$
+
+- Đường thẳng: `\overleftrightarrow{AB}`
+Ví dụ: $\overleftrightarrow{AB}$
+
+- Vector: `\vec{a}`, `overrightarrow{AB}`
+Ví dụ: $\vec{a}$, $\overrightarrow{AB}$
+
+- Số đo góc: `\measuredangle ABC`
+Ví dụ: $\measuredangle ABC$
+
+- Hình vuông: `\square`
+Ví dụ: $\square $ -->
+<!-- Các phép toán tập hợp -->
+<h4 id="10-ph%C3%A9p-to%C3%A1n-t%E1%BA%ADp-h%E1%BB%A3p">10. Phép toán tập hợp:</h4>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\in</code></td>
+<td>$\in$</td>
+<td><code>\ni</code></td>
+<td>$\ni$</td>
+</tr>
+<tr>
+<td><code>\notin</code></td>
+<td>$\notin$</td>
+<td><code>\subset</code></td>
+<td>$\subset$</td>
+</tr>
+<tr>
+<td><code>\subseteq</code></td>
+<td>$\subseteq$</td>
+<td><code>\cup</code></td>
+<td>$\cup$</td>
+</tr>
+<tr>
+<td><code>\cap</code></td>
+<td>$\cap$</td>
+<td><code>\emptyset</code></td>
+<td>$\emptyset$</td>
+</tr>
+<tr>
+<td><code>\varnothing</code></td>
+<td>$\varnothing$</td>
+<td><code>\lor</code></td>
+<td>$\lor$</td>
+</tr>
+<tr>
+<td><code>\land</code></td>
+<td>$\land$</td>
+<td><code>\overline{A}</code></td>
+<td>$\overline{A}$</td>
+</tr>
+<tr>
+<td><code>\bar{A}</code></td>
+<td>$\bar{A}$</td>
+<td><code>\mathbb{R}</code></td>
+<td>$\mathbb{R}$</td>
+</tr>
+<tr>
+<td><code>\mathbb{N}</code></td>
+<td>$\mathbb{N}$</td>
+<td><code>\mathbb{Z}</code></td>
+<td>$\mathbb{Z}$</td>
+</tr>
+<tr>
+<td><code>\mathcal{f}</code></td>
+<td>$\mathcal{f}$</td>
+<td><code>\mathcal{g}</code></td>
+<td>$\mathcal{g}$</td>
+</tr>
+</tbody>
+</table>
+<!-- - Thuộc, không thuộc: `\in`, `\ni`, `\notin`
+Ví dụ: $a \in A$, $a \ni A$,  $a \notin A$
+
+- Con: `\subset`, `\subseteq`, `\cup`, `\cap`, `\emptyset`
+Ví dụ: $A \subset B$, $A \subseteq B$, $A \cup B$, $A \cap B$, $\emptyset$
+
+
+- Phần bù: `\overline{A}`, `\bar{A}`
+Ví dụ: $\overline{A}$, $\bar{A}$
+
+- Hoặc, và: `\lor`, `\land`
+Ví dụ: $A \lor B$, $A \land B$
+
+
+- Tập hợp rỗng: `\varnothing`
+Ví dụ: $\varnothing$ -->
+<!-- Ký hiệu Hy Lạp -->
+<h4 id="11-k%C3%BD-hi%E1%BB%87u-hy-l%E1%BA%A1p">11. Ký hiệu Hy Lạp:</h4>
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\alpha</code></td>
+<td>$\alpha$</td>
+<td><code>\beta</code></td>
+<td>$\beta$</td>
+</tr>
+<tr>
+<td><code>\gamma</code></td>
+<td>$\gamma$</td>
+<td><code>\delta</code></td>
+<td>$\delta$</td>
+</tr>
+<tr>
+<td><code>\epsilon</code></td>
+<td>$\epsilon$</td>
+<td><code>\varepsilon</code></td>
+<td>$\varepsilon$</td>
+</tr>
+<tr>
+<td><code>\zeta</code></td>
+<td>$\zeta$</td>
+<td><code>\eta</code></td>
+<td>$\eta$</td>
+</tr>
+<tr>
+<td><code>\theta</code></td>
+<td>$\theta$</td>
+<td><code>\vartheta</code></td>
+<td>$\vartheta$</td>
+</tr>
+<tr>
+<td><code>\iota</code></td>
+<td>$\iota$</td>
+<td><code>\kappa</code></td>
+<td>$\kappa$</td>
+</tr>
+<tr>
+<td><code>\lambda</code></td>
+<td>$\lambda$</td>
+<td><code>\mu</code></td>
+<td>$\mu$</td>
+</tr>
+<tr>
+<td><code>\nu</code></td>
+<td>$\nu$</td>
+<td><code>\xi</code></td>
+<td>$\xi$</td>
+</tr>
+<tr>
+<td><code>\pi</code></td>
+<td>$\pi$</td>
+<td><code>\varpi</code></td>
+<td>$\varpi$</td>
+</tr>
+<tr>
+<td><code>\rho</code></td>
+<td>$\rho$</td>
+<td><code>\varrho</code></td>
+<td>$\varrho$</td>
+</tr>
+<tr>
+<td><code>\sigma</code></td>
+<td>$\sigma$</td>
+<td><code>\varsigma</code></td>
+<td>$\varsigma$</td>
+</tr>
+<tr>
+<td><code>\tau</code></td>
+<td>$\tau$</td>
+<td><code>\upsilon</code></td>
+<td>$\upsilon$</td>
+</tr>
+<tr>
+<td><code>\phi</code></td>
+<td>$\phi$</td>
+<td><code>\varphi</code></td>
+<td>$\varphi$</td>
+</tr>
+<tr>
+<td><code>\chi</code></td>
+<td>$\chi$</td>
+<td><code>\psi</code></td>
+<td>$\psi$</td>
+</tr>
+<tr>
+<td><code>\omega</code></td>
+<td>$\omega$</td>
+<td><code>\Gamma</code></td>
+<td>$\Gamma$</td>
+</tr>
+<tr>
+<td><code>\Delta</code></td>
+<td>$\Delta$</td>
+<td><code>\Theta</code></td>
+<td>$\Theta$</td>
+</tr>
+<tr>
+<td><code>\Lambda</code></td>
+<td>$\Lambda$</td>
+<td><code>\Xi</code></td>
+<td>$\Xi$</td>
+</tr>
+<tr>
+<td><code>\Pi</code></td>
+<td>$\Pi$</td>
+<td><code>\Sigma</code></td>
+<td>$\Sigma$</td>
+</tr>
+<tr>
+<td><code>\Upsilon</code></td>
+<td>$\Upsilon$</td>
+<td><code>\Phi</code></td>
+<td>$\Phi$</td>
+</tr>
+<tr>
+<td><code>\Psi</code></td>
+<td>$\Psi$</td>
+<td><code>\Omega</code></td>
+<td>$\Omega$</td>
+</tr>
+</tbody>
+</table>
+<!-- - Chữ Hy Lạp: `\alpha`
+Ví dụ: $\alpha$, 
+- Chữ Hy Lạp: `\beta`
+Ví dụ: $\beta$
+- Chữ Hy Lạp: `\gamma`
+Ví dụ: $\gamma$
+- Chữ Hy Lạp: `\delta`
+Ví dụ: $\delta$
+- Chữ Hy Lạp: `\epsilon`
+Ví dụ: $\epsilon$
+- Chữ Hy Lạp: `\varepsilon`
+Ví dụ: $\varepsilon$
+- Chữ Hy Lạp: `\zeta`
+Ví dụ: $\zeta$
+- Chữ Hy Lạp: `\eta`
+Ví dụ: $\eta$
+- Chữ Hy Lạp: `\theta`
+Ví dụ: $\theta$
+- Chữ Hy Lạp: `\vartheta`
+Ví dụ: $\vartheta$
+- Chữ Hy Lạp: `\iota`
+Ví dụ: $\iota$
+- Chữ Hy Lạp: `\kappa`  
+Ví dụ: $\kappa$
+- Chữ Hy Lạp: `\lambda`
+Ví dụ: $\lambda$
+- Chữ Hy Lạp: `\mu`
+Ví dụ: $\mu$
+- Chữ Hy Lạp: `\nu`
+Ví dụ: $\nu$
+- Chữ Hy Lạp: `\xi` 
+Ví dụ: $\xi$
+- Chữ Hy Lạp: `\pi`
+Ví dụ: $\pi$
+- Chữ Hy Lạp: `\varpi`
+Ví dụ: $\varpi$
+- Chữ Hy Lạp: `\rho`
+Ví dụ: $\rho$
+- Chữ Hy Lạp: `\varrho`
+Ví dụ: $\varrho$
+- Chữ Hy Lạp: `\sigma`
+Ví dụ: $\sigma$
+- Chữ Hy Lạp: `\varsigma`
+Ví dụ: $\varsigma$
+- Chữ Hy Lạp: `\tau`
+Ví dụ: $\tau$
+- Chữ Hy Lạp: `\upsilon`
+Ví dụ: $\upsilon$
+- Chữ Hy Lạp: `\phi`
+Ví dụ: $\phi$
+- Chữ Hy Lạp: `\varphi`
+Ví dụ: $\varphi$
+- Chữ Hy Lạp: `\chi`
+Ví dụ: $\chi$
+- Chữ Hy Lạp: `\psi`
+Ví dụ: $\psi$
+- Chữ Hy Lạp: `\omega`
+Ví dụ: $\omega$
+- Chữ Hy Lạp: `\Delta`
+Ví dụ: $\Delta$ -->
+<h4 id="12-bi%E1%BB%83u-%C4%91%E1%BB%93">12. Biểu đồ:</h4>
+<pre class="hljs"><code><div>\begin{CD} 
+A @&gt;a&gt;&gt; B\\ 
+@VVbV @VVcV\\ 
+C @&gt;d&gt;&gt; D 
+\end{CD}
+</div></code></pre>
+<p>Hiển thị:
+$$
+\begin{CD}
+A @&gt;a&gt;&gt; B\
+@VVbV @VVcV\
+C @&gt;d&gt;&gt; D
+\end{CD}
+$$</p>
+<h4 id="13-c%C3%A1c-k%C3%BD-hi%E1%BB%87u-kh%C3%A1c">13. Các ký hiệu khác:</h4>
+<p>| Ký hiệu | Hiển thị | Ký hiệu | Hiển thị |</p>
+<!-- Các ký hiệu khác -->
+<table>
+<thead>
+<tr>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+<th>Ký hiệu</th>
+<th>Hiển thị</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\partial</code></td>
+<td>$\partial$</td>
+<td><code>equiv</code></td>
+<td>$\equiv$</td>
+</tr>
+<tr>
+<td><code>\approx</code></td>
+<td>$\approx$</td>
+<td><code>\cong</code></td>
+<td>$\cong$</td>
+</tr>
+<tr>
+<td><code>\simeq</code></td>
+<td>$\simeq$</td>
+<td><code>\sim</code></td>
+<td>$\sim$</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>$=$</td>
+<td><code>\ne</code></td>
+<td>$\ne$</td>
+</tr>
+<tr>
+<td><code>\neq</code></td>
+<td>$\neq$</td>
+<td><code>\parallel</code></td>
+<td>$\parallel$</td>
+</tr>
+<tr>
+<td><code>\nparallel</code></td>
+<td>$\nparallel$</td>
+<td><code>\vdash</code></td>
+<td>$\vdash$</td>
+</tr>
+<tr>
+<td><code>\dashv</code></td>
+<td>$\dashv$</td>
+<td><code>\smile</code></td>
+<td>$\smile$</td>
+</tr>
+<tr>
+<td><code>\frown</code></td>
+<td>$\frown$</td>
+<td><code>\perp</code></td>
+<td>$\perp$</td>
+</tr>
+<tr>
+<td><code>\bot</code></td>
+<td>$\bot$</td>
+<td><code>\top</code></td>
+<td>$\top$</td>
+</tr>
+<tr>
+<td><code>\mid</code></td>
+<td>$\mid$</td>
+<td><code>circ</code></td>
+<td>$\circ$</td>
+</tr>
+<tr>
+<td><code>\bullet</code></td>
+<td>$\bullet$</td>
+<td><code>\diamond</code></td>
+<td>$\diamond$</td>
+</tr>
+<tr>
+<td><code>\bigtriangleup</code></td>
+<td>$\bigtriangleup$</td>
+<td><code>\bigtriangledown</code></td>
+<td>$\bigtriangledown$</td>
+</tr>
+<tr>
+<td><code>\bigcirc</code></td>
+<td>$\bigcirc$</td>
+<td><code>\bigstar</code></td>
+<td>$\bigstar$</td>
+</tr>
+<tr>
+<td><code>\bigodot</code></td>
+<td>$\bigodot$</td>
+<td><code>\bigoplus</code></td>
+<td>$\bigoplus$</td>
+</tr>
+<tr>
+<td><code>\bigotimes</code></td>
+<td>$\bigotimes$</td>
+<td><code>\sum</code></td>
+<td>$\sum$</td>
+</tr>
+<tr>
+<td><code>\prod</code></td>
+<td>$\prod$</td>
+<td><code>\coprod</code></td>
+<td>$\coprod$</td>
+</tr>
+<tr>
+<td><code>\int</code></td>
+<td>$\int$</td>
+<td><code>\oint</code></td>
+<td>$\oint$</td>
+</tr>
+<tr>
+<td><code>\bigcap</code></td>
+<td>$\bigcap$</td>
+<td><code>\bigcup</code></td>
+<td>$\bigcup$</td>
+</tr>
+<tr>
+<td><code>\oplus</code></td>
+<td>$\oplus$</td>
+<td><code>\ominus</code></td>
+<td>$\ominus$</td>
+</tr>
+<tr>
+<td><code>\otimes</code></td>
+<td>$\otimes$</td>
+<td><code>\oslash</code></td>
+<td>$\oslash$</td>
+</tr>
+</tbody>
+</table>
+<!-- - Đạo hàm riêng: `\partial`
+Ví dụ: $\partial$
+
+- Dấu trùng: `\equiv`
+Hiển thị: $\equiv$
+- Xấp xỉ: `\approx`, `\cong`, `\simeq`
+Hiển thị: $\approx$, $\cong$, $\simeq$
+- Đồng dạng: `\sim`
+Hiển thị: $\sim$
+
+- Dấu bằng, dấu khác: `=`, `\ne`, `\neq`
+Hiển thị: $=$, $\ne$, $\neq$
+
+- Song song: `\parallel`, `\nparallel`
+Hiển thị: $\parallel$, $\nparallel$
+
+- : `\vdash`, `\dashv`
+Hiển thị: $\vdash$, $\dashv$
+
+- : `\smile`, `\frown`
+Hiển thị: $\smile$, $\frown$
+
+- : `\asymp` , `\bowtie`, `\models`
+Hiển thị: $\asymp$, $\bowtie$, $\models$
+
+- Vuông góc: `\perp` hoặc `\bot`
+Hiển thị: $\perp$ , $\bot$
+
+- Sọc thẳng đứng: `\mid`
+Hiển thị: $\mid$
+
+- Ký hiệu độ: `\circ`
+
+- Ký hiệu hiệu trong tập hợp: `\setminus`
+
+- : `\diamond`
+
+- : `\triangle`, `\bigtriangleup`
+
+- : `\bigtriangledown`
+
+- : `\triangleleft`
+
+- : `\triangleright`
+
+- : `\bigcirc`
+
+- : `\bullet`
+
+- : `\oplus`
+
+- : `\ominus`
+
+- : `\otimes`
+
+- `\oslash`
+
+- `\odot`
+
+- : `\amalg`
+
+
+
+
+
+
+
+
+
+ -->
+
+</body>
+</html>

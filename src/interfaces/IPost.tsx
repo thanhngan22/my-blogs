@@ -1,12 +1,9 @@
-// type for object of post in main.json
+// type for object of single posts in SinglePost.json
 
 export interface IPost {
-    id: string,
-    topic: string,
-    tittle: string,
+    id: number,
+    date: string,
+    title: string,
     path: string,
-    sections: string[],
-
-    // date: string,
-
+    source: string
 }
