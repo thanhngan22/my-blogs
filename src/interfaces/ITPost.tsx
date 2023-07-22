@@ -2,7 +2,7 @@
 import { IPost } from ".";
 
 export interface ITPost {
-    topic: string,
+    name: string,
     path: string,
     posts: IPost[]
 }

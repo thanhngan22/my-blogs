@@ -7,15 +7,21 @@ import Sections from './Sections';
 // interfaces
 import { IPost, ITPost } from '../interfaces';
 
-function Main() {
-    const filePath = 'data/TopicPosts.json';
 
+
+function Main() {
+    const [topics, setTopics] = useState<ITPost[]>([]);
+
+    const topicsFilePath = "data/TopicPosts.json";
+
+    
 
     useEffect(() => {
-      fetch(filePath)
+      fetch(topicsFilePath)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        console.log("data from main: ", data);
+        setTopics(data);
       })
       .catch(error => console.log(error))
     }, []);
@@ -23,8 +29,8 @@ function Main() {
 
   return (
     <div className="main__container flex ">
-        <Catalog />
-        <Content  />
+        <Catalog topics = {topics} />
+        <Content topics = {topics} />
         <Sections />
         </div>
   )

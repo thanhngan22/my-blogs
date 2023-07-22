@@ -1,6 +1,6 @@
 [
     {
-        "topic": "Linux Fundamentals",
+        "name": "Linux Fundamentals",
         "path": "/linux",
         "posts": [
             {
@@ -13,7 +13,7 @@
         ]
     },
     {
-        "topic": "Computer Architecture",
+        "name": "Computer Architecture",
         "path": "/computer-architecture",
         "posts": [
             {
@@ -26,7 +26,7 @@
         ]
     },
     {
-        "topic": "Latex Fundamentals",
+        "name": "Latex Fundamentals",
         "path": "/latex",
         "posts": [
             {
@@ -35,6 +35,85 @@
                 "title": "Introduction to Latex",
                 "path": "/introduction",
                 "source": "/data/blogs/Latex/readme.html"
+            }
+        ]
+    },
+    {
+        "name": "Operating System",
+        "path": "/operating-system",
+        "posts": [
+            {
+                "id": 1,
+                "date": "22/07/2023",
+                "title": "Overview",
+                "path": "/introduction",
+                "source": "/data/blogs/Operating-System/readme.html"
+            }
+        ]
+    }, 
+    {
+        "name": "Database ",
+        "path": "/database",
+        "posts": [
+            {
+                "id": 1,
+                "date": "22/07/2023",
+                "title": "Introduction to Database",
+                "path": "/introduction",
+                "source": "/data/blogs/Database/readme.html"
+            }
+        ]
+    },
+    {
+        "name": "CTF Write-ups",
+        "path": "/ctf-writeups",
+        "posts": [
+            {
+                "id": 1,
+                "date": "22/07/2023",
+                "title": "Introduction to CTF",
+                "path": "/introduction",
+                "source": "/data/blogs/CTF-Writeups/readme.html"
+            }
+        ]
+    }, 
+    {
+        "name": "Web documentation",
+        "path": "/web-docs",
+        "posts": [
+            {
+                "id": 1,
+                "date": "22/07/2023",
+                "title": "Overview",
+                "path": "/introduction",
+                "source": "/data/blogs/Web-Documentation/readme.html"
+            }
+        ]
+    }, 
+    {
+        "name": "Object Oriented Programming",
+        "path": "/oop",
+        "posts": [
+            {
+                "id": 1,
+                "date": "22/07/2023",
+                "title": "Introduction to OOP",
+                "path": "/introduction",
+                "source": "/data/blogs/OOP/readme.html"
+            }
+        ]
+
+    },
+    {
+        "name": "Data Structure and Algorithm",
+        "path": "/dsa",
+        "posts": [
+            {
+                "id": 1,
+                "date": "22/07/2023",
+                "title": "Introduction to DSA",
+                "path": "/introduction",
+                "source": "/data/blogs/DSA/readme.html"
             }
         ]
     }

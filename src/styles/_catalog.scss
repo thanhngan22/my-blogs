@@ -46,10 +46,8 @@
     border-radius: 4px;
 
     &:hover {
-    background-color: rgb(34, 50, 70);
-    color: white;
-    
-      
+      background-color: rgb(34, 50, 70);
+      color: white;
     }
   }
 }
@@ -68,4 +66,58 @@
     width: 1px;
     background-color: #3d6279;
   }
+}
+
+.topic__item, .post__item {
+  > a {
+    &:hover {
+      text-decoration: none;
+
+      .right__triangle {
+        border-left: 8px solid #4373c0;
+      }
+    }
+  }
+}
+
+.right__triangle {
+  display: inline-block;
+  height: 0px;
+  width: 0px;
+  margin-right: 6px;
+
+  border-left: 8px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 6px solid transparent;
+  border-top: 6px solid transparent;
+
+}
+
+.bottom__triangle {
+  display: inline-block;
+  height: 0px;
+  width: 0px;
+  margin-right: 6px;
+  transform: translateY(-3px);
+
+  border-top: 8px solid blue;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+.post__item {
+  margin-left: 18px;
+  margin-bottom: 2px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8px;
+}
+
+.post__item-active {
+  background-color: rgb(34, 50, 70);
+  color: white;
+
+  padding-left: 16px;
+  border-left: 2px solid #4373c0;
 }
