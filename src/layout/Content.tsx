@@ -8,7 +8,7 @@ interface IProps {
 }
 
 const Content: React.FC<IProps> = ({ topics }) => {
-  console.log('topics from content: ', topics);
+  // console.log('topics from content: ', topics);
 
   useLayoutEffect(() => {
     const path = 'data/blogs/Linux/readme.html';

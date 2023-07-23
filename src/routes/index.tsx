@@ -18,6 +18,10 @@ const router = createBrowserRouter(
                     path: "/:topicID",
                     element: <Main />,
                 },
+                {
+                    path: "/:topicID/:postID",
+                    element: <Main />,
+                }
             ]
         }
     ]

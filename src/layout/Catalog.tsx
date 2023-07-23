@@ -1,44 +1,97 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useRef } from 'react';
 
 // interfaces
 import { IPost, ITPost } from '../interfaces';
 
 interface IProps {
-  topics : ITPost[];
+  topics: ITPost[];
 }
 
-const Catalog : React.FC<IProps> = ({ topics }) => {
-
+const Catalog: React.FC<IProps> = ({ topics }) => {
+  const currentPost = useRef<HTMLDivElement | null>(null);
   const [data, setData] = useState<JSX.Element[]>([]);
-  
-useEffect(() => {
-  console.log("topics from catalog: ", topics)
-  if (topics.length !== 0) {
-    const listTopics = topics.map((topic, key) => {
-      return (
-        <ul className = "topic__item text-white pb-2" key = {key}>
-          <Link to = {`${topic.path}`} className = "text-white text-base hover:text-blue-500 pb-2">
-            <div className="right__triangle"></div>
-            {topic.name}</Link>
-          {
-            topic.posts.map((post, key) => {
+
+  const setCurrentPost = (e: any) => {
+    if (currentPost.current !== null) {
+      currentPost.current.classList.remove('--active__post');
+    }
+
+    currentPost.current = e.target.parentNode as HTMLDivElement;
+    currentPost.current.classList.add('--active__post');
+    // console.log("current post: ", currentPost.current)
+    const postTitle = currentPost.current.innerText;
+    // console.log("post title: ", postTitle)
+    document.title = postTitle;
+  };
+
+  const toggle = (element: any) => {
+    // console.log('element: ', element);
+    if (element.classList.contains('--close')) {
+      element.classList.remove('--close');
+      element.classList.add('--open');
+    } else {
+      element.classList.remove('--open');
+      element.classList.add('--close');
+    }
+  };
+
+  const handleOnClickTopic = (event: any) => {
+    // console.log('event: ', event.target.innerText);
+    document.title = event.target.innerText;
+
+    // console.log('event onclick: ', event.target);
+    // get div element from tag a
+    const divElement = event.target.children;
+    // console.log('div element: ', divElement);
+    if (divElement.length !== 0) {
+      if (divElement[0].classList.contains('--right__triangle')) {
+        divElement[0].classList.remove('--right__triangle');
+        divElement[0].classList.add('--down__triangle');
+      } else {
+        divElement[0].classList.remove('--down__triangle');
+        divElement[0].classList.add('--right__triangle');
+      }
+    }
+
+    toggle(event.target.parentNode);
+  };
+
+  useEffect(() => {
+    // console.log('topics from catalog: ', topics);
+    if (topics.length !== 0) {
+      const listTopics = topics.map((topic, key) => {
+        return (
+          <ul className="topic__item --close pb-2" key={key}>
+            <Link
+              to={`${topic.path}`}
+              className="text-gray-400 text-sm hover:text-blue-500 "
+              onClick={handleOnClickTopic}
+            >
+              <div className="--right__triangle"></div>
+              {topic.name}
+            </Link>
+            {topic.posts.map((post, key) => {
               return (
-                <li className = "post__item post__item-active" key = {key}>
-                  <Link to = {`${ post.path}`} className = "text-white hover:text-blue-500">
+                <li className="post__item " key={key}>
+                  <Link
+                    to={`${topic.path + post.path}`}
+                    className="text-gray-300 hover:text-blue-500"
+                    onClick={(e) => setCurrentPost(e)}
+                  >
                     {post.title}
                   </Link>
                 </li>
-              )
-            })
-          }
-        </ul>
-      )
-    }) 
-    setData(listTopics);
-  }
-}, [topics])
+              );
+            })}
+          </ul>
+        );
+      });
+      setData(listTopics);
+    }
+  }, [topics]);
 
   return (
     <div className="catalog__wrapper w-1/5 pl-4 pr-5 py-5  ">

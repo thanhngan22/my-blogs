@@ -20,7 +20,7 @@ function Main() {
       fetch(topicsFilePath)
       .then(response => response.json())
       .then(data => {
-        console.log("data from main: ", data);
+        // console.log("data from main: ", data);
         setTopics(data);
       })
       .catch(error => console.log(error))

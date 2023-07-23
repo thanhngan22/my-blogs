@@ -4,8 +4,8 @@
 
 .catalog__header {
   padding-left: 4px;
-  border-top: 1px solid #3d6279;
-  border-bottom: 1px solid #3d6279;
+  /*border-top: 1px solid #3d6279;
+  border-bottom: 1px solid #3d6279;*/
 
   border-radius: 4px;
 }
@@ -23,7 +23,7 @@
 }
 
 .list__topics {
-  margin: 12px 16px;
+  margin: 0px 12px;
   width: 96%;
 }
 
@@ -53,8 +53,8 @@
 }
 
 .catalog__main {
-  height: 90%;
-  margin: 10% 0;
+  height: 95%;
+  margin: 5% 0;
 
   .left__bar {
     width: 2px;
@@ -80,28 +80,42 @@
   }
 }
 
-.right__triangle {
+.--close {
+    /*background-color: #ca809c;*/
+    > li {
+      display: none;
+    }
+  }
+
+  .--open {
+    > li {
+      display: block;
+    }
+  }
+
+
+.--right__triangle {
   display: inline-block;
   height: 0px;
   width: 0px;
   margin-right: 6px;
 
-  border-left: 8px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 6px solid transparent;
-  border-top: 6px solid transparent;
+  border-left: 6px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 4px solid transparent;
+  border-top: 4px solid transparent;
 
 }
 
-.bottom__triangle {
+.--down__triangle {
   display: inline-block;
   height: 0px;
   width: 0px;
   margin-right: 6px;
   transform: translateY(-3px);
 
-  border-top: 8px solid blue;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 26, 255, 0.65 );
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
 }
 
 .post__item {
@@ -114,10 +128,12 @@
   padding-left: 8px;
 }
 
-.post__item-active {
+.--active__post {
   background-color: rgb(34, 50, 70);
   color: white;
 
   padding-left: 16px;
   border-left: 2px solid #4373c0;
+
 }
+
