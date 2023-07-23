@@ -4,10 +4,14 @@
     rgb(141, 201, 217),
     hsl(150, 25%, 50%)
   );*/
-  background-color: rgb(141,201,217);
-  padding: 20px 60px 60px 80px;
+
+  position: relative;
+
+  background-color: rgb(141, 201, 217);
   border-left: 6px solid #eaecef;
   .blog__main {
+    padding: 20px 60px 20px 80px;
+
     > h1 {
       font-size: 30px;
       font-weight: 500;

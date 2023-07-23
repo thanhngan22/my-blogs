@@ -22,3 +22,13 @@
   .sections__wrapper {
     background-color: black;
   }
+
+  .--menu__sections {
+    display: none;
+  
+    position: absolute;
+    top: 4px;
+    right:0px;
+    width: 32px;
+    height: 32px;
+  }

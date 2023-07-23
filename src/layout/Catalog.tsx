@@ -94,9 +94,9 @@ const Catalog: React.FC<IProps> = ({ topics }) => {
   }, [topics]);
 
   return (
-    <div className="catalog__wrapper w-1/5 pl-4 pr-5 py-5  ">
+    <div className="catalog__wrapper w-1/5 pl-2 pr-3 py-3 ">
       <div className="catalog__header">
-        <h1 className="text-xl text-white "> 🌩️ Index</h1>
+        <h1 className="text-xl text-white ">✏️Index </h1>
       </div>
       <div className="catalog__main flex flex-row">
         <div className="left__bar"></div>

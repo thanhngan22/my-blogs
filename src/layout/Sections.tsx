@@ -14,14 +14,14 @@ const Sections = () => {
 
 
   return (
-    <div className="sections__wrapper w-1/5 px-5 py-5 border-l border-white flex flex-col justify-between">
+    <div className="sections__wrapper w-1/5 px-3 py-3 border-l border-white flex flex-col justify-between">
       <div className="section__1">
         <div className="sections__header">
-          <h1 className="text-xl text-white"> 📝 Sections | In this blog</h1>
+          <h1 className="text-xl text-white"> 📝 Sections | In this post</h1>
         </div>
-        <div className="sections__body flex py-4">
-          <div className="bar bg-red-400 ml-5 h-auto"></div>
-          <div className="sections__list py-2 pl-5 ">
+        <div className="sections__body flex py-2">
+          <div className="bar bg-red-400 ml-1 h-auto"></div>
+          <div className="sections__list py-2 pl-4 pr-2 text-gray-400 ">
             {/* create fake list */}
             
           </div>

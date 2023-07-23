@@ -1,0 +1,42 @@
+@media screen and (max-width: 1250px) {
+
+    .sections__wrapper {
+      display: none !important;
+    }
+    .--menu__sections {
+        display: block !important;
+    }
+    .content__wrapper {
+      width: 80% !important;
+    }
+    body {
+        padding: 0 !important;
+    }
+}
+
+
+@media screen and (max-width: 995px) {
+    .blog__main {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+
+    }
+    .catalog__wrapper {
+        width: 30% !important;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .catalog__wrapper {
+        display: none !important;
+    }
+    .content__wrapper {
+        width: 100% !important;
+        border-left: none;
+        padding-left: 28px;
+    }
+
+    .--menu__catalog {
+        display: block !important;
+    }
+}
