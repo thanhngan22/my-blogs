@@ -29,12 +29,12 @@ const Catalog: React.FC<IProps> = ({ topics }) => {
 
   const toggle = (element: any) => {
     // console.log('element: ', element);
-    if (element.classList.contains('--close')) {
-      element.classList.remove('--close');
-      element.classList.add('--open');
+    if (element.classList.contains('--topic__close')) {
+      element.classList.remove('--topic__close');
+      element.classList.add('--topic__open');
     } else {
-      element.classList.remove('--open');
-      element.classList.add('--close');
+      element.classList.remove('--topic__open');
+      element.classList.add('--topic__close');
     }
   };
 
@@ -64,7 +64,7 @@ const Catalog: React.FC<IProps> = ({ topics }) => {
     if (topics.length !== 0) {
       const listTopics = topics.map((topic, key) => {
         return (
-          <ul className="topic__item --close pb-2" key={key}>
+          <ul className="topic__item --topic__close pb-2" key={key}>
             <Link
               to={`${topic.path}`}
               className="text-gray-400 text-sm hover:text-blue-500 "
@@ -78,7 +78,7 @@ const Catalog: React.FC<IProps> = ({ topics }) => {
                 <li className="post__item " key={key}>
                   <Link
                     to={`${topic.path + post.path}`}
-                    className="text-gray-300 hover:text-blue-500"
+                    className="text-gray-300 hover:text-blue-500 text-sm"
                     onClick={(e) => setCurrentPost(e)}
                   >
                     {post.title}
@@ -93,8 +93,29 @@ const Catalog: React.FC<IProps> = ({ topics }) => {
     }
   }, [topics]);
 
+  // add event onclick menu catalog to close or open (--menu__catalog in a div element inner Content component)
+  const menu = document.querySelector('.--menu__catalog');
+  // console.log('menu: ', menu);
+  if (menu !== null) {
+    menu.addEventListener('click', (e) => {
+      // console.log('e: ', e.target);
+      const catalog = document.getElementById('Catalog');
+      // console.log('catalog: ', catalog);
+
+      // ------------- handle later
+
+      // if (catalog) {
+      //   console.log("catalog exist")
+      //   document.body.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+      //   catalog.setAttribute('style', 'display: block; z-index: 1000; transition: translateX(0) 0.5s ease-in-out;');
+
+        
+      // }
+    })
+  }
+
   return (
-    <div className="catalog__wrapper w-1/5 pl-2 pr-3 py-3 ">
+    <div id="Catalog" className="catalog__wrapper w-1/5 pl-2 pr-3 py-3 ">
       <div className="catalog__header">
         <h1 className="text-xl text-white ">✏️Index </h1>
       </div>

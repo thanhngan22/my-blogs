@@ -9,13 +9,10 @@
     .content__wrapper {
       width: 80% !important;
     }
-    body {
-        padding: 0 !important;
-    }
 }
 
 
-@media screen and (max-width: 995px) {
+@media screen and (max-width: 1060px) {
     .blog__main {
         padding-left: 20px !important;
         padding-right: 20px !important;
@@ -26,17 +23,21 @@
     }
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 770px) {
     .catalog__wrapper {
-        display: none !important;
+        display: none;
     }
     .content__wrapper {
         width: 100% !important;
         border-left: none;
-        padding-left: 28px;
+        padding-top: 8px;
+    }
+
+    .blog__main {
+        padding-left: 26px !important;
     }
 
     .--menu__catalog {
-        display: block !important;
+        display: block ;
     }
 }

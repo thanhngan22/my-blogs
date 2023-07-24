@@ -1,31 +1,79 @@
 import { IPost, ITPost } from '../interfaces';
 
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 interface IProps {
   topics: ITPost[];
   // singlePosts: IPost[];
 }
 
-const Content: React.FC<IProps> = ({ topics }) => {
-  // console.log('topics from content: ', topics);
+interface Post {
+  path: string;
+  source: string;
+}
 
-  useLayoutEffect(() => {
-    const path = 'data/blogs/Linux/readme.html';
-    fetch(path)
+const Content: React.FC<IProps> = ({ topics }) => {
+  const [listTopicPosts, setListTopicPosts] = useState<Post[]>([]);
+
+  // useEffect(() => {
+  //   const path = 'data/blogs/Linux/readme.html';
+  //   fetch(path)
+  //     .then((res) => res.text())
+  //     .then((data) => {
+  //       // console.log('data readme.html: ', data);
+  //       // set inner HTML
+  //       const blogMain = document.querySelector('.blog__main');
+  //       if (blogMain !== null) {
+  //         blogMain.innerHTML = data;
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching content:', error);
+  //     });
+  // }, []);
+
+  useEffect(() => {
+    // console.log('topics from content: ', topics);
+    const list = topics.map((topic) => {
+      let path = topic.path;
+      let source = '';
+      topic.posts.forEach((post) => {
+        path += post.path;
+        source = post.source;
+      });
+      return { path, source };
+    });
+    setListTopicPosts(list);
+    // console.log('listTopicPosts: ', listTopicPosts);
+  }, [topics]);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    console.log('location.pathname: ', location.pathname);
+    const currentPost = listTopicPosts.find((post) => post.path === location.pathname);
+    console.log('currentPost: ', currentPost);
+
+    const path = currentPost?.source;
+    if (path) {
+      fetch(path)
       .then((res) => res.text())
       .then((data) => {
-        // console.log('data readme.html: ', data);
-        // set inner HTML
+        // set inner content
         const blogMain = document.querySelector('.blog__main');
         if (blogMain !== null) {
           blogMain.innerHTML = data;
         }
       })
       .catch((error) => {
-        console.error('Error fetching readme.html:', error);
-      });
-  }, []);
+        console.error('Error fetching content:', error);
+      })
+    }
+
+
+  }, [location.pathname]);
 
   return (
     <div className="content__wrapper w-3/5 overflow-y-auto overflow-x-hidden ">
@@ -40,11 +88,11 @@ const Content: React.FC<IProps> = ({ topics }) => {
         </svg>
       </div>
       <div className="blog__main"></div>
-      <div className= "--menu__sections">
+      <div className="--menu__sections">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="1.7em"
-          className='px-1 py-1  rounded-sm cursor-pointer bg-pink-200 hover:bg-gray-400 hover:rotate-12'
+          className="px-1 py-1  rounded-sm cursor-pointer bg-pink-200 hover:bg-gray-400 hover:rotate-12"
           viewBox="0 0 448 512"
         >
           <path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z" />

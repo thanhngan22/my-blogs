@@ -12,7 +12,12 @@ import { IPost, ITPost } from '../interfaces';
 function Main() {
     const [topics, setTopics] = useState<ITPost[]>([]);
 
-    const topicsFilePath = "data/TopicPosts.json";
+    // set path of data file
+    const localPath = "http://localhost:3000/data/TopicPosts.json";
+    const publicPath = "https://suke-blogs.vercel.app/data/TopicPosts.json";
+
+    console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
+    const topicsFilePath = process.env.NODE_ENV === "development" ? localPath : publicPath;
 
     
 
@@ -20,10 +25,10 @@ function Main() {
       fetch(topicsFilePath)
       .then(response => response.json())
       .then(data => {
-        // console.log("data from main: ", data);
+        console.log("data from main: ", data);
         setTopics(data);
       })
-      .catch(error => console.log(error))
+      .catch(error => console.log("error from fetching posts file: ", error))
     }, []);
 
 

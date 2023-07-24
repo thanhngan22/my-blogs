@@ -20,15 +20,16 @@
   }
 
   .sections__wrapper {
-    background-color: black;
+    background-color: rgba(19, 19, 20, 0.88);
   }
 
   .--menu__sections {
     display: none;
   
-    position: absolute;
+    position: fixed;
     top: 4px;
     right:0px;
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
+    margin-right: 4px;
   }
