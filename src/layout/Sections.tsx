@@ -11,8 +11,6 @@ interface IProps {
 const Sections = () => {
 
 
-
-
   return (
     <div className="sections__wrapper w-1/5 px-3 py-3 border-l border-white flex flex-col justify-between">
       <div className="section__1">
@@ -27,7 +25,6 @@ const Sections = () => {
           </div>
         </div>
       </div>
-
 
       <div className=" bg-blue-500 fixed bottom-0 right-3  px-3 h-5 text-sm font-semibold">
         <a href="https://github.com/thanhngan22">© thanhngan22</a>

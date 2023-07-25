@@ -4,6 +4,12 @@ import { useEffect, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
+// components
+import AddSections from '../modules/AddSections';
+import ToggleSections from '../modules/ToggleSections';
+import HighlightCurrentSection from '../modules/HighlighCurrentSection';
+import ScrollToElementSmoothly from '../modules/ScrollToElementSmoothly';
+
 interface IProps {
   topics: ITPost[];
   // singlePosts: IPost[];
@@ -16,23 +22,6 @@ interface Post {
 
 const Content: React.FC<IProps> = ({ topics }) => {
   const [listTopicPosts, setListTopicPosts] = useState<Post[]>([]);
-
-  // useEffect(() => {
-  //   const path = 'data/blogs/Linux/readme.html';
-  //   fetch(path)
-  //     .then((res) => res.text())
-  //     .then((data) => {
-  //       // console.log('data readme.html: ', data);
-  //       // set inner HTML
-  //       const blogMain = document.querySelector('.blog__main');
-  //       if (blogMain !== null) {
-  //         blogMain.innerHTML = data;
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching content:', error);
-  //     });
-  // }, []);
 
   useEffect(() => {
     // console.log('topics from content: ', topics);
@@ -52,9 +41,9 @@ const Content: React.FC<IProps> = ({ topics }) => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log('location.pathname: ', location.pathname);
+    // console.log('location.pathname: ', location.pathname);
     const currentPost = listTopicPosts.find((post) => post.path === location.pathname);
-    console.log('currentPost: ', currentPost);
+    // console.log('currentPost: ', currentPost);
 
     const path = currentPost?.source;
     if (path) {
@@ -72,8 +61,13 @@ const Content: React.FC<IProps> = ({ topics }) => {
       })
     }
 
+    AddSections();
+    ToggleSections();
+    ScrollToElementSmoothly();
+    HighlightCurrentSection();
 
-  }, [location.pathname]);
+
+  }, [location.pathname, topics]);
 
   return (
     <div className="content__wrapper w-3/5 overflow-y-auto overflow-x-hidden ">

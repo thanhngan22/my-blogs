@@ -33,3 +33,19 @@
     height: 26px;
     margin-right: 4px;
   }
+
+  .--section__item {
+    list-style: none;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    > a {
+      color: rgba(255,255,255,0.5);
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .--highlighted {
+    color: coral !important;
+  }
